@@ -125,12 +125,7 @@ eval "$(zoxide init zsh)"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# everblush theme for fzf
-export FZF_DEFAULT_OPTS='
-  --color fg:#5d6466,bg:#1e2527
-  --color bg+:#ef7d7d,fg+:#2c2f30
-  --color hl:#dadada,hl+:#26292a,gutter:#1e2527
-  --color pointer:#373d49,info:#606672
-  --border
-  --color border:#1e2527
-  --height 13'
+export FZF_DEFAULT_OPTS="--color=fg:#d3c6aa,bg:-1,hl:#7fbbb3 \
+  --color=fg+:#d3c6aa,bg+:#323c41,hl+:#7fbbb3 \
+  --color=info:#83c092,prompt:#e67e80,pointer:#e69875 \
+  --color=marker:#a7c080,spinner:#dbbc7f,header:#d699b6"
