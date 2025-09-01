@@ -3,8 +3,10 @@
 Included tools are:
 - neovim
 - kitty
+- ulauncher
+- paperWM
+- atuin
 - yazi
 - btop
 - zsh (and its plugins)
-- My favorite gtk theme (Squared)
-- Some cool wallpapers relevant to my theme
+- Some theming stuff that I use
