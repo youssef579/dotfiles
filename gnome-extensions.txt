@@ -92,7 +92,7 @@ stockgs-keep-dash=false
 stockgs-keep-top-panel=false
 trans-gradient-bottom-opacity=0.5
 trans-gradient-top-opacity=0.5
-trans-panel-opacity=0.40000000000000002
+trans-panel-opacity=1.0
 trans-use-custom-bg=false
 trans-use-custom-gradient=false
 trans-use-custom-opacity=true
@@ -105,6 +105,40 @@ show-home=false
 [extension-list]
 button-icon=uint32 0
 hide-inactive=false
+
+[gsconnect]
+devices=['75681bd18663411ab13abb623024634b']
+enabled=false
+name='youssef-VivoBook-ASUSLaptop-X513'
+
+[gsconnect/device/75681bd18663411ab13abb623024634b]
+certificate-pem='-----BEGIN CERTIFICATE-----\nMIIBjDCCATGgAwIBAgIBATAKBggqhkjOPQQDBDBPMSkwJwYDVQQDDCA3NTY4MWJk\nMTg2NjM0MTFhYjEzYWJiNjIzMDI0NjM0YjEUMBIGA1UECwwLS0RFIENvbm5lY3Qx\nDDAKBgNVBAoMA0tERTAeFw0yNDA5MDIyMTAwMDBaFw0zNTA5MDIyMTAwMDBaME8x\nKTAnBgNVBAMMIDc1NjgxYmQxODY2MzQxMWFiMTNhYmI2MjMwMjQ2MzRiMRQwEgYD\nVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RFMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAEi5gTpUF3IKOJnJ4F3qCcnpDHQNZFyUrYeOc09ve9QKBzBosaFN+H\nqclt/+K/VQ7AdQuL70vg/PQIcImxGKhemjAKBggqhkjOPQQDBANJADBGAiEAncOo\n72Y/AmyWtJLuxvzDKdHhKzzjJQLfe4q2rOmXV50CIQCmPeI4VO0SKRI+q9QF4bJ1\neGlXZb32mXtg9pCS4z9PuA==\n-----END CERTIFICATE-----\n'
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+last-connection='lan://192.168.1.8:1716'
+name='A74'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
+paired=true
+supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
+type='phone'
+
+[gsconnect/device/75681bd18663411ab13abb623024634b/plugin/battery]
+custom-battery-notification=true
+custom-battery-notification-value=uint32 80
+full-battery-notification=true
+
+[gsconnect/device/75681bd18663411ab13abb623024634b/plugin/clipboard]
+receive-content=true
+send-content=true
+
+[gsconnect/device/75681bd18663411ab13abb623024634b/plugin/notification]
+applications='{"Power":{"iconName":"org.gnome.Settings-power-symbolic","enabled":true},"Software":{"iconName":"org.gnome.Software","enabled":true},"Clocks":{"iconName":"org.gnome.clocks","enabled":true},"Color":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Printers":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Files":{"iconName":"org.gnome.Nautilus","enabled":true},"Disk Usage Analyzer":{"iconName":"org.gnome.baobab","enabled":true},"Disks":{"iconName":"org.gnome.DiskUtility","enabled":true},"Events and Tasks Reminders":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"NetworkManager Applet":{"iconName":"nm-device-wireless","enabled":true},"Date & Time":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Snapd User Session Agent":{"iconName":"/usr/share/snapd/snapcraft-logo-bird.svg","enabled":true}}'
+
+[gsconnect/device/75681bd18663411ab13abb623024634b/plugin/share]
+receive-directory='/home/youssef/Downloads'
+
+[gsconnect/preferences]
+window-maximized=false
+window-size=(959, 998)
 
 [just-perfection]
 accessibility-menu=false
