@@ -52,7 +52,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Save file
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', ':w<CR>', { desc = 'Save file' })
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save file' })
 
 -- Copy entire file to clipboard
 vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = 'Copy whole file' })

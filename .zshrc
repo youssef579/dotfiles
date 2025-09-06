@@ -128,4 +128,4 @@ export FZF_DEFAULT_OPTS="--color=fg:#d3c6aa,bg:-1,hl:#7fbbb3 \
   --color=fg+:#d3c6aa,bg+:#323c41,hl+:#7fbbb3 \
   --color=info:#83c092,prompt:#e67e80,pointer:#e69875 \
   --color=marker:#a7c080,spinner:#dbbc7f,header:#d699b6"
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
