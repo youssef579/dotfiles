@@ -2,11 +2,10 @@
 
 Included tools are:
 - neovim
+- fish
 - kitty
 - ulauncher
-- paperWM
 - atuin
 - yazi
 - btop
-- zsh (and its plugins)
 - Some theming stuff that I use
