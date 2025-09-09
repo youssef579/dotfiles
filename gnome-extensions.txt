@@ -42,7 +42,7 @@ background-opacity=0.80000000000000004
 dash-max-icon-size=48
 dock-position='LEFT'
 height-fraction=0.90000000000000002
-isolate-workspaces=true
+isolate-workspaces=false
 preferred-monitor=-2
 preferred-monitor-by-connector='eDP-1'
 
@@ -106,7 +106,7 @@ check-x11wayland=true
 show-home=false
 
 [extension-list]
-button-icon=uint32 1
+button-icon=uint32 0
 ext-app='com.mattjakeman.ExtensionManager.desktop'
 hide-inactive=false
 toggle-unpin=false
@@ -143,7 +143,7 @@ receive-directory='/home/youssef/Downloads'
 
 [gsconnect/preferences]
 window-maximized=false
-window-size=(957, 1004)
+window-size=(942, 970)
 
 [just-perfection]
 accessibility-menu=false
@@ -167,24 +167,24 @@ user-background-1=true
 animation-time=0.0
 disable-topbar-styling=false
 gesture-enabled=false
-horizontal-margin=2
+horizontal-margin=10
 last-used-display-server='Xorg'
 open-window-position=0
 restore-attach-modal-dialogs='true'
 restore-edge-tiling='false'
 restore-keybinds='{"cancel-input-capture":{"bind":"[\\"<Super><Shift>Escape\\"]","schema_id":"org.gnome.mutter.keybindings"},"restore-shortcuts":{"bind":"[\\"<Super>Escape\\"]","schema_id":"org.gnome.mutter.wayland.keybindings"},"switch-to-workspace-last":{"bind":"[\\"<Super>End\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels":{"bind":"[\\"<Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"minimize":{"bind":"[\\"<Super>h\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group-backward":{"bind":"[\\"<Shift><Super>Above_Tab\\",\\"<Shift><Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-1":{"bind":"[\\"<Super>Home\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-left":{"bind":"[\\"<Super><Shift>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-down":{"bind":"[\\"<Super><Shift>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group":{"bind":"[\\"<Super>Above_Tab\\",\\"<Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-left":{"bind":"[\\"<Super><Shift>Page_Up\\",\\"<Super><Shift><Alt>Left\\",\\"<Control><Shift><Alt>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-right":{"bind":"[\\"<Super><Shift>Page_Down\\",\\"<Super><Shift><Alt>Right\\",\\"<Control><Shift><Alt>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels-backward":{"bind":"[\\"<Shift><Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-left":{"bind":"[\\"<Super>Page_Up\\",\\"<Super><Alt>Left\\",\\"<Control><Alt>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-up":{"bind":"[\\"<Control><Shift><Alt>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-right":{"bind":"[\\"<Super>Page_Down\\",\\"<Super><Alt>Right\\",\\"<Control><Alt>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"show-desktop":{"bind":"[\\"<Primary><Super>d\\",\\"<Primary><Alt>d\\",\\"<Super>d\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-down":{"bind":"[\\"<Control><Shift><Alt>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications":{"bind":"[\\"<Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows":{"bind":"[\\"<Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-right":{"bind":"[\\"<Super><Shift>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications-backward":{"bind":"[\\"<Shift><Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows-backward":{"bind":"[\\"<Shift><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-up":{"bind":"[\\"<Super><Shift>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"shift-overview-up":{"bind":"[\\"<Super><Alt>Up\\"]","schema_id":"org.gnome.shell.keybindings"},"shift-overview-down":{"bind":"[\\"<Super><Alt>Down\\"]","schema_id":"org.gnome.shell.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"toggle-message-tray":{"bind":"[\\"<Super>v\\",\\"<Super>m\\"]","schema_id":"org.gnome.shell.keybindings"},"screensaver":{"bind":"[\\"<Super>l\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"},"rotate-video-lock-static":{"bind":"[\\"<Super>o\\",\\"XF86RotationLockToggle\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'
 restore-workspaces-only-on-primary='true'
-selection-border-radius-bottom=0
-selection-border-radius-top=0
-selection-border-size=2
+selection-border-radius-bottom=10
+selection-border-radius-top=10
+selection-border-size=10
 show-focus-mode-icon=false
 show-open-position-icon=false
 show-window-position-bar=false
 show-workspace-indicator=true
 use-default-background=true
-vertical-margin=2
-vertical-margin-bottom=2
-window-gap=2
+vertical-margin=16
+vertical-margin-bottom=16
+window-gap=15
 winprops=['{"wm_class":"/.*/i","preferredWidth":"50%"}', '{"wm_class":"/.*ulauncher.*/i","scratch_layer":true,"title":"/.*ulauncher.*/i"}']
 
 [paperwm/keybindings]
@@ -209,11 +209,17 @@ name='2'
 [paperwm/workspaces/50e0ed78-2bf1-4f52-8939-f805b10c6908]
 index=1
 
+[paperwm/workspaces/75c52e5b-21c1-4550-b815-b381874c9bd1]
+index=1
+
 [paperwm/workspaces/8d0bcaf6-edfa-4d6c-b183-ee4fae4eb239]
 index=0
 
 [paperwm/workspaces/99151678-e26c-48d6-9da9-1bf18fe449df]
 index=4
+
+[paperwm/workspaces/b190a02e-9a82-4b63-8267-50b93802911b]
+index=0
 
 [paperwm/workspaces/b5c77c4d-1410-430b-ac2d-3bd0c5f1dbb3]
 index=5
@@ -250,7 +256,7 @@ restore-window=['<Super>Down']
 tile-left-half=['<Super>Left', '<Super>KP_4']
 tile-maximize=['<Super>Up', '<Super>KP_5']
 tile-right-half=['<Super>Right', '<Super>KP_6']
-tiling-popup-all-workspace=false
+tiling-popup-all-workspace=true
 
 [user-theme-x]
 x-autoswitch=true
