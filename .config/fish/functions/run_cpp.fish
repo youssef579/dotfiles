@@ -11,14 +11,14 @@ function run_cpp
     g++ $file -o $out
 
     # Decide whether to pipe the clipboard
-    if contains -i "-p" $argv
+    if contains "p" $argv
         xclip -o -selection clipboard | ./$out
     else
         ./$out
     end
 
     # Optional cleanup
-    if contains -i "-d" $argv
+    if contains "d" $argv
         rm -f $out
     end
 end
