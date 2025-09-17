@@ -62,4 +62,7 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<A-z>', function()
   vim.wo.wrap = not vim.wo.wrap
   print('Word Wrap: ' .. (vim.wo.wrap and 'ON' or 'OFF'))
 end, { desc = 'Toggle Word Wrap' })
+
+-- Toggle autosave
+vim.keymap.set('n', '<leader>a', '<cmd>ASToggle<cr>', { desc = 'Toggle auto save' })
 -- vim: ts=2 sts=2 sw=2 et

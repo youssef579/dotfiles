@@ -1,0 +1,10 @@
+user-theme@gnome-shell-extensions.gcampax.github.com
+extension-list@tu.berry
+gsconnect@andyholmes.github.io
+dash-to-panel@jderose9.github.com
+paperwm@paperwm.github.com
+ding@rastersoft.com
+tiling-assistant@ubuntu.com
+ubuntu-appindicators@ubuntu.com
+ubuntu-dock@ubuntu.com
+Vitals@CoreCoding.com

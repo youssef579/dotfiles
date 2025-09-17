@@ -8,4 +8,5 @@ Included tools are:
 - atuin
 - yazi
 - btop
-- Some theming stuff that I use
+- eza
+- my gnome theme that I use
