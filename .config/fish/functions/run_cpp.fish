@@ -8,7 +8,7 @@ function run_cpp
     set base (basename $file .cpp)
     set out ".$base.out"
 
-    g++ $file -o $out
+    g++ -g $file -o $out
 
     # Decide whether to pipe the clipboard
     if contains "p" $argv

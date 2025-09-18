@@ -65,4 +65,7 @@ end, { desc = 'Toggle Word Wrap' })
 
 -- Toggle autosave
 vim.keymap.set('n', '<leader>a', '<cmd>ASToggle<cr>', { desc = 'Toggle auto save' })
+
+-- Open file explorer
+vim.keymap.set('n', '<leader>ex', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Show file explorer' })
 -- vim: ts=2 sts=2 sw=2 et
