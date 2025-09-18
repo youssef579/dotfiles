@@ -77,6 +77,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 
-vim.wo.fillchars = 'eob: ' -- Remove the ~'s
+vim.opt.fillchars = 'eob: ' -- Remove the ~'s
 vim.o.wrap = false -- Disable line wrap
+
+vim.opt.termguicolors = true
 -- vim: ts=2 sts=2 sw=2 et
