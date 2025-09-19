@@ -5,12 +5,23 @@ return {
       require('mini.surround').setup()
       require('mini.trailspace').setup()
       require('mini.files').setup()
+      require('mini.pairs').setup()
       require('mini.indentscope').setup {
         draw = {
           animation = require('mini.indentscope').gen_animation.none(),
           delay = 0,
         },
       }
+
+      -- Snippets per language
+      local gen_loader = require('mini.snippets').gen_loader
+      require('mini.snippets').setup {
+        snippets = {
+          gen_loader.from_lang(),
+        },
+      }
+
+      -- Buffer tabs
       require('mini.tabline').setup {
         show_icons = vim.g.have_nerd_font,
       }
@@ -34,6 +45,7 @@ return {
       vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { bg = '#a7c080', fg = '#141b1e', bold = true })
       vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bg = '#2b3339', fg = '#7a8478', bold = true })
 
+      -- Dashboard
       local starter = require 'mini.starter'
       starter.setup {
         items = {
@@ -50,12 +62,13 @@ return {
         footer = '',
       }
 
+      -- Status line
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
 
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
-        return '%2l:%-2v'
+        return '%l:%L% '
       end
     end,
   },
