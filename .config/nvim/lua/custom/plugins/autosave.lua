@@ -2,7 +2,8 @@ return {
   {
     'Pocco81/auto-save.nvim',
     config = function()
-      require('auto-save').setup {
+      local autosave = require 'auto-save'
+      autosave.setup {
         execution_message = {
           message = function()
             return ''
@@ -10,6 +11,7 @@ return {
           cleaning_interval = 0,
         },
       }
+      vim.keymap.set('n', '<leader>a', autosave.toggle)
     end,
   },
 }

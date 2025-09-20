@@ -4,13 +4,27 @@ return {
     config = function()
       require('mini.surround').setup()
       require('mini.trailspace').setup()
-      require('mini.files').setup()
       require('mini.pairs').setup()
+      require('mini.git').setup()
+      require('mini.move').setup()
+      require('mini.notify').setup {
+        window = {
+          winblend = 0,
+        },
+      }
       require('mini.indentscope').setup {
         draw = {
           animation = require('mini.indentscope').gen_animation.none(),
           delay = 0,
         },
+      }
+
+      -- File explorer
+      local files = require 'mini.files'
+      files.setup {
+        config = function()
+          vim.keymap.set('n', '<leader>ex', files.open)
+        end,
       }
 
       -- Snippets per language

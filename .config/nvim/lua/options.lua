@@ -15,14 +15,6 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
--- vim.schedule(function()
---   vim.o.clipboard = 'unnamedplus'
--- end)
-
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -72,10 +64,10 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- Indentation
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.expandtab = true
-vim.o.softtabstop = 4
+vim.o.softtabstop = 2
 
 vim.opt.fillchars = 'eob: ' -- Remove the ~'s
 vim.o.wrap = false -- Disable line wrap
