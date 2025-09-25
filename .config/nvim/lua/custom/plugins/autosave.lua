@@ -11,7 +11,7 @@ return {
           cleaning_interval = 0,
         },
       }
-      vim.keymap.set('n', '<leader>a', autosave.toggle)
+      vim.keymap.set('n', '<leader>a', autosave.toggle, { desc = 'Toggle [A]utosave' })
     end,
   },
 }

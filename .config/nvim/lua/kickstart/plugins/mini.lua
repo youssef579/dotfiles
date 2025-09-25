@@ -8,24 +8,31 @@ return {
       require('mini.git').setup()
       require('mini.move').setup()
       require('mini.notify').setup {
+        lsp_progress = {
+          enable = false,
+        },
         window = {
           winblend = 0,
         },
       }
-      require('mini.indentscope').setup {
+
+      -- Indentation scope
+      local indentation_scope = require 'mini.indentscope'
+      indentation_scope.setup {
         draw = {
-          animation = require('mini.indentscope').gen_animation.none(),
+          animation = indentation_scope.gen_animation.none(),
           delay = 0,
         },
       }
 
       -- File explorer
       local files = require 'mini.files'
-      files.setup {
-        config = function()
-          vim.keymap.set('n', '<leader>ex', files.open)
-        end,
-      }
+      files.setup {}
+      vim.keymap.set('n', '<leader>e', function()
+        if not MiniFiles.close() then
+          MiniFiles.open()
+        end
+      end, { desc = 'Open [E]xplorer' })
 
       -- Snippets per language
       local gen_loader = require('mini.snippets').gen_loader
