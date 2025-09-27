@@ -22,6 +22,7 @@ return {
         c = { 'clang_format' },
         json = { 'prettier' },
         markdown = { 'markdownlint' },
+        python = { 'isort', 'black' },
       },
     },
   },

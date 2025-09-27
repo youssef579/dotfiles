@@ -20,7 +20,7 @@ require('lazy').setup({
 
   require 'kickstart.plugins.treesitter',
 
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
 
   require 'kickstart.plugins.lint',
 

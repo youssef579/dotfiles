@@ -40,6 +40,10 @@ return {
         snippets = {
           gen_loader.from_lang(),
         },
+        mappings = {
+          expand = '<C-y>',
+          stop = '<C-e>',
+        },
       }
 
       -- Buffer tabs
