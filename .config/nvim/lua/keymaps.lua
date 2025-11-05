@@ -44,5 +44,5 @@ vim.keymap.set('n', '<leader>k', ':bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>j', ':bprevious<CR>', { desc = 'Previous buffer' })
 
 -- Buffer deletion
-vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = 'Quit Buffer' })
+vim.keymap.set('n', '<leader>d', ':bd<CR>', { desc = '[D]elete Buffer' })
 -- vim: ts=2 sts=2 sw=2 et

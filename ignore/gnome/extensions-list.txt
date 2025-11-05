@@ -3,8 +3,9 @@ extension-list@tu.berry
 gsconnect@andyholmes.github.io
 dash-to-panel@jderose9.github.com
 paperwm@paperwm.github.com
+Vitals@CoreCoding.com
+caffeine@patapon.info
 ding@rastersoft.com
 tiling-assistant@ubuntu.com
 ubuntu-appindicators@ubuntu.com
 ubuntu-dock@ubuntu.com
-Vitals@CoreCoding.com
