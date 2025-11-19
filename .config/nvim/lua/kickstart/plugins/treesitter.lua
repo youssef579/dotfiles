@@ -30,9 +30,10 @@ return {
         multiline_threshold = 20, -- max number of lines to collapse for context
         trim_scope = 'outer', -- which context lines to discard if max_lines is exceeded
         mode = 'cursor', -- "cursor" or "topline"
-        separator = nil, -- you can set a line like "─" or "▃"
+        separator = '-', -- you can set a line like "─" or "▃"
         zindex = 20, -- overlay priority
       }
+      vim.cmd 'hi TreesitterContext guibg=none'
     end,
   },
 }

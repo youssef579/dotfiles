@@ -3,23 +3,31 @@ return {
     'echasnovski/mini.nvim',
     config = function()
       require('mini.ai').setup {
-        custom_textobjects = {
-          f = require('mini.ai').gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
-        },
+        -- custom_textobjects = {
+        --   f = require('mini.ai').gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+        -- },
       }
       require('mini.surround').setup()
       require('mini.trailspace').setup()
+
       require('mini.pairs').setup()
       require('mini.git').setup()
       require('mini.move').setup()
       require('mini.notify').setup {
-        lsp_progress = {
-          enable = false,
-        },
-        window = {
-          winblend = 0,
-        },
+        lsp_progress = { enable = false },
+        window = { winblend = 0 },
       }
+
+      -- Session manager
+      local sessions = require 'mini.sessions'
+      sessions.setup {
+        verbose = { read = true, write = true, delete = true },
+        file = '',
+      }
+      vim.keymap.set('n', '<leader>sm', sessions.select, { desc = 'Open [S]essions [M]' })
+      vim.keymap.set('n', '<leader>sl', function()
+        sessions.read(sessions.get_latest())
+      end, { desc = 'Open [L]atest [S]ession' })
 
       -- Indentation scope
       local indentation_scope = require 'mini.indentscope'
@@ -85,8 +93,7 @@ return {
           starter.sections.builtin_actions(),
         },
         content_hooks = {
-          starter.gen_hook.adding_bullet '  ',
-          starter.gen_hook.indexing('all', { 'Builtin actions' }),
+          starter.gen_hook.adding_bullet ' - ',
           starter.gen_hook.aligning('center', 'center'),
         },
         footer = '',
