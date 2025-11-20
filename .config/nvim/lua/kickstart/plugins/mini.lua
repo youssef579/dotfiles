@@ -2,17 +2,13 @@ return {
   {
     'echasnovski/mini.nvim',
     config = function()
-      require('mini.ai').setup {
-        -- custom_textobjects = {
-        --   f = require('mini.ai').gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
-        -- },
-      }
+      require('mini.ai').setup()
       require('mini.surround').setup()
       require('mini.trailspace').setup()
-
       require('mini.pairs').setup()
       require('mini.git').setup()
       require('mini.move').setup()
+      require('mini.splitjoin').setup()
       require('mini.notify').setup {
         lsp_progress = { enable = false },
         window = { winblend = 0 },
@@ -21,6 +17,7 @@ return {
       -- Session manager
       local sessions = require 'mini.sessions'
       sessions.setup {
+        autoread = true,
         verbose = { read = true, write = true, delete = true },
         file = '',
       }
@@ -59,44 +56,50 @@ return {
         },
       }
 
-      -- Buffer tabs
-      require('mini.tabline').setup {
-        show_icons = vim.g.have_nerd_font,
-      }
+      local miniclue = require 'mini.clue'
+      miniclue.setup {
+        triggers = {
+          -- Leader triggers
+          { mode = 'n', keys = '<Leader>' },
+          { mode = 'x', keys = '<Leader>' },
 
-      vim.api.nvim_create_autocmd('BufEnter', {
-        callback = vim.schedule_wrap(function()
-          local n_listed_bufs = 0
-          for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
-            if vim.fn.buflisted(buf_id) == 1 then
-              n_listed_bufs = n_listed_bufs + 1
-            end
-          end
+          -- Built-in completion
+          { mode = 'i', keys = '<C-x>' },
 
-          vim.o.showtabline = n_listed_bufs > 1 and 2 or 0
-        end),
-        desc = 'Update tabline based on the number of listed buffers',
-      })
+          -- `g` key
+          { mode = 'n', keys = 'g' },
+          { mode = 'x', keys = 'g' },
 
-      vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = '#a7c080', fg = '#141b1e' })
-      vim.api.nvim_set_hl(0, 'MiniTablineHidden', { bg = '#2b3339', fg = '#7a8478' })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { bg = '#a7c080', fg = '#141b1e', bold = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bg = '#2b3339', fg = '#7a8478', bold = true })
+          -- Marks
+          { mode = 'n', keys = "'" },
+          { mode = 'n', keys = '`' },
+          { mode = 'x', keys = "'" },
+          { mode = 'x', keys = '`' },
 
-      -- Dashboard
-      local starter = require 'mini.starter'
-      starter.setup {
-        items = {
-          starter.sections.sessions(5, true),
-          starter.sections.recent_files(5, true),
-          starter.sections.recent_files(5, false),
-          starter.sections.builtin_actions(),
+          -- Registers
+          { mode = 'n', keys = '"' },
+          { mode = 'x', keys = '"' },
+          { mode = 'i', keys = '<C-r>' },
+          { mode = 'c', keys = '<C-r>' },
+
+          -- Window commands
+          { mode = 'n', keys = '<C-w>' },
+
+          -- `z` key
+          { mode = 'n', keys = 'z' },
+          { mode = 'x', keys = 'z' },
         },
-        content_hooks = {
-          starter.gen_hook.adding_bullet ' - ',
-          starter.gen_hook.aligning('center', 'center'),
+
+        clues = {
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          miniclue.gen_clues.builtin_completion(),
+          miniclue.gen_clues.g(),
+          miniclue.gen_clues.marks(),
+          miniclue.gen_clues.registers(),
+          miniclue.gen_clues.windows(),
+          miniclue.gen_clues.z(),
         },
-        footer = '',
+        delay = 300,
       }
 
       -- Status line

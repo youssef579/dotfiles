@@ -4,8 +4,6 @@ require('lazy').setup({
 
   require 'kickstart.plugins.gitsigns',
 
-  require 'kickstart.plugins.which-key',
-
   require 'kickstart.plugins.telescope',
 
   require 'kickstart.plugins.lspconfig',

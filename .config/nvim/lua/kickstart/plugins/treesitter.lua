@@ -36,5 +36,9 @@ return {
       vim.cmd 'hi TreesitterContext guibg=none'
     end,
   },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    event = 'VeryLazy',
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
