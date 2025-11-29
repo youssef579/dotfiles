@@ -18,8 +18,8 @@ return {
       format_on_save = true,
       formatters_by_ft = {
         lua = { 'stylua' },
-        cpp = { 'clang_format' },
-        c = { 'clang_format' },
+        cpp = { 'clang-format' },
+        c = { 'clang-format' },
         json = { 'prettier' },
         markdown = { 'markdownlint' },
         python = { 'isort', 'black' },

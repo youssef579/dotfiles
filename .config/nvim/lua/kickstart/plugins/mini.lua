@@ -1,6 +1,7 @@
 return {
   {
     'echasnovski/mini.nvim',
+    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     config = function()
       require('mini.ai').setup()
       require('mini.surround').setup()
@@ -21,10 +22,7 @@ return {
         verbose = { read = true, write = true, delete = true },
         file = '',
       }
-      vim.keymap.set('n', '<leader>sm', sessions.select, { desc = 'Open [S]essions [M]' })
-      vim.keymap.set('n', '<leader>sl', function()
-        sessions.read(sessions.get_latest())
-      end, { desc = 'Open [L]atest [S]ession' })
+      vim.keymap.set('n', '<leader>sm', sessions.select, { desc = 'Open [S]ession [Manager]' })
 
       -- Indentation scope
       local indentation_scope = require 'mini.indentscope'
@@ -37,7 +35,11 @@ return {
 
       -- File explorer
       local files = require 'mini.files'
-      files.setup {}
+      files.setup {
+        windows = {
+          preview = true,
+        },
+      }
       vim.keymap.set('n', '<leader>e', function()
         if not MiniFiles.close() then
           MiniFiles.open()
@@ -88,6 +90,10 @@ return {
           -- `z` key
           { mode = 'n', keys = 'z' },
           { mode = 'x', keys = 'z' },
+
+          -- square brackets
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
         },
 
         clues = {
@@ -98,8 +104,14 @@ return {
           miniclue.gen_clues.registers(),
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
+          miniclue.gen_clues.square_brackets(),
         },
-        delay = 300,
+        window = {
+          config = {
+            width = 40,
+          },
+          delay = 0,
+        },
       }
 
       -- Status line

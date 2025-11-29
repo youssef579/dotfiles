@@ -20,13 +20,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Save file
-vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr>', { desc = 'Save file' })
+vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr>', { desc = '[S]ave' })
 
 -- Build
-vim.keymap.set('n', '<leader>b', '<cmd>!./build.fish<cr>', { desc = 'Build' })
+vim.keymap.set('n', '<leader>b', '<cmd>w<cr><cmd>!./build.fish<cr>', { desc = '[B]uild', silent = true })
 
 -- Copy entire file to clipboard
-vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = 'Copy whole file' })
+vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = '[C]opy file', silent = true })
 
 -- ShortCut for Wrapping
 vim.keymap.set({ 'n', 'i', 'v' }, '<A-z>', function()
@@ -43,9 +43,15 @@ vim.keymap.set('i', '<C-h>', function()
 end, { expr = true })
 
 -- Buffer navigation
-vim.keymap.set('n', '<leader>k', ':bnext<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<leader>j', ':bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>k', '<cmd>bnext<cr>', { desc = 'Next buffer', silent = true })
+vim.keymap.set('n', '<leader>j', '<cmd>bprevious<cr>', { desc = 'Previous buffer', silent = true })
 
 -- Buffer deletion
-vim.keymap.set('n', '<leader>d', ':bd<CR>', { desc = '[D]elete Buffer' })
+vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>', { desc = '[D]elete Buffer', silent = true })
+
+-- For centering when Scrolling
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-f>', '<C-f>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-b>', '<C-b>zz', { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et
