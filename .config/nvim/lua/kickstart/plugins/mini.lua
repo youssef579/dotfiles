@@ -8,7 +8,6 @@ return {
       require('mini.trailspace').setup()
       require('mini.pairs').setup()
       require('mini.git').setup()
-      require('mini.move').setup()
       require('mini.splitjoin').setup()
       require('mini.notify').setup {
         lsp_progress = { enable = false },
@@ -22,16 +21,7 @@ return {
         verbose = { read = true, write = true, delete = true },
         file = '',
       }
-      vim.keymap.set('n', '<leader>sm', sessions.select, { desc = 'Open [S]ession [Manager]' })
-
-      -- Indentation scope
-      local indentation_scope = require 'mini.indentscope'
-      indentation_scope.setup {
-        draw = {
-          animation = indentation_scope.gen_animation.none(),
-          delay = 0,
-        },
-      }
+      vim.keymap.set('n', '<leader>sm', sessions.select, { desc = '[S]ession [M]anager' })
 
       -- File explorer
       local files = require 'mini.files'
@@ -55,62 +45,6 @@ return {
         mappings = {
           expand = '<C-y>',
           stop = '<C-e>',
-        },
-      }
-
-      local miniclue = require 'mini.clue'
-      miniclue.setup {
-        triggers = {
-          -- Leader triggers
-          { mode = 'n', keys = '<Leader>' },
-          { mode = 'x', keys = '<Leader>' },
-
-          -- Built-in completion
-          { mode = 'i', keys = '<C-x>' },
-
-          -- `g` key
-          { mode = 'n', keys = 'g' },
-          { mode = 'x', keys = 'g' },
-
-          -- Marks
-          { mode = 'n', keys = "'" },
-          { mode = 'n', keys = '`' },
-          { mode = 'x', keys = "'" },
-          { mode = 'x', keys = '`' },
-
-          -- Registers
-          { mode = 'n', keys = '"' },
-          { mode = 'x', keys = '"' },
-          { mode = 'i', keys = '<C-r>' },
-          { mode = 'c', keys = '<C-r>' },
-
-          -- Window commands
-          { mode = 'n', keys = '<C-w>' },
-
-          -- `z` key
-          { mode = 'n', keys = 'z' },
-          { mode = 'x', keys = 'z' },
-
-          -- square brackets
-          { mode = 'n', keys = '[' },
-          { mode = 'n', keys = ']' },
-        },
-
-        clues = {
-          -- Enhance this by adding descriptions for <Leader> mapping groups
-          miniclue.gen_clues.builtin_completion(),
-          miniclue.gen_clues.g(),
-          miniclue.gen_clues.marks(),
-          miniclue.gen_clues.registers(),
-          miniclue.gen_clues.windows(),
-          miniclue.gen_clues.z(),
-          miniclue.gen_clues.square_brackets(),
-        },
-        window = {
-          config = {
-            width = 40,
-          },
-          delay = 0,
         },
       }
 

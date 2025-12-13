@@ -7,11 +7,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
+using ld = long double;
 #define endl '\n'
+#define ALL(v) (v).begin(), (v).end()
 void Fast();
 
 void solve() {
-  // Start coding...
+  // @t if needed. 15jcc to start
 }
 
 int main() {
@@ -24,7 +26,7 @@ int main() {
 }
 
 void Fast() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
 }

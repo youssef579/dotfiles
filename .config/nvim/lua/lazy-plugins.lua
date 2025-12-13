@@ -12,13 +12,15 @@ require('lazy').setup({
 
   require 'kickstart.plugins.blink-cmp',
 
+  require 'kickstart.plugins.which-key',
+
+  require 'kickstart.plugins.indent-blankline',
+
   require 'kickstart.plugins.todo-comments',
 
   require 'kickstart.plugins.mini',
 
   require 'kickstart.plugins.treesitter',
-
-  -- require 'kickstart.plugins.debug',
 
   require 'kickstart.plugins.lint',
 

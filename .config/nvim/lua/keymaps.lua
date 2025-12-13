@@ -22,8 +22,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Save file
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr>', { desc = '[S]ave' })
 
--- Build
-vim.keymap.set('n', '<leader>b', '<cmd>w<cr><cmd>!./build.fish<cr>', { desc = '[B]uild', silent = true })
+-- Run
+vim.keymap.set('n', '<leader>r', '<cmd>w<cr><cmd>!./build.fish<cr>', { desc = '[R]un porject', silent = true })
 
 -- Copy entire file to clipboard
 vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = '[C]opy file', silent = true })
@@ -34,20 +34,11 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<A-z>', function()
   print('Word Wrap: ' .. (vim.wo.wrap and 'ON' or 'OFF'))
 end, { desc = 'Toggle Word Wrap' })
 
--- For moving without leaving insert mode
-vim.keymap.set('i', '<C-l>', function()
-  return vim.fn.pumvisible() == 1 and '<C-e>' or '<Right>'
-end, { expr = true })
-vim.keymap.set('i', '<C-h>', function()
-  return vim.fn.pumvisible() == 1 and '<C-e>' or '<Left>'
-end, { expr = true })
-
--- Buffer navigation
+-- Buffer manipulation
 vim.keymap.set('n', '<leader>k', '<cmd>bnext<cr>', { desc = 'Next buffer', silent = true })
 vim.keymap.set('n', '<leader>j', '<cmd>bprevious<cr>', { desc = 'Previous buffer', silent = true })
-
--- Buffer deletion
-vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>', { desc = '[D]elete Buffer', silent = true })
+vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>', { desc = 'Delete buffer', silent = true })
+vim.keymap.set('n', '<leader>ba', '<cmd>%bd<cr>', { desc = 'Delete all Buffers', silent = true })
 
 -- For centering when Scrolling
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })

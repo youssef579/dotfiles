@@ -10,18 +10,26 @@ return {
     { '<leader>cd', '<cmd>CompetiTest delete_testcase<CR>', desc = '[C]ompetiTest [D]elete Testcase' },
   },
   config = function()
-    require('competitest').setup {
+    local cp = require 'competitest'
+    cp.setup {
       received_problems_path = '$(HOME)/Programming/cp/$(JUDGE)/$(CONTEST)/$(PROBLEM)/main.$(FEXT)',
       received_contests_directory = '$(HOME)/Programming/cp/$(JUDGE)/$(CONTEST)',
       received_contests_problems_path = '$(PROBLEM)/main.$(FEXT)',
-      open_received_contests = false,
       received_contests_prompt_extension = false,
       received_contests_prompt_directory = false,
       received_problems_prompt_path = false,
       evaluate_template_modifiers = true,
       testcases_use_single_file = true,
-      view_output_diff = true,
+      save_all_files = true,
       template_file = '~/.config/nvim/templates/template.$(FEXT)',
+      runner_ui = {
+        interface = 'split',
+        show_nu = false,
+        viewer = {
+          width = 0.8,
+          height = 0.8,
+        },
+      },
     }
   end,
 }

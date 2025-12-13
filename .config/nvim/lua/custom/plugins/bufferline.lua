@@ -9,12 +9,15 @@ return {
         style_preset = bufferline.style_preset.no_italic,
         separator_style = { '╎', '╎' },
         show_buffer_close_icons = false,
-        -- always_show_bufferline = false,
         indicator = {
-          style = 'none',
+          icon = ' ',
         },
         diagnostics = 'nvim_lsp',
       },
     }
+
+    vim.keymap.set('n', 'gb', bufferline.pick, { desc = 'Go to Buffer' })
+    vim.keymap.set('n', 'gD', bufferline.close_with_pick, { desc = 'Delete Buffer' })
+    vim.keymap.set('n', '<leader>bo', bufferline.close_others, { desc = 'Delete Others' })
   end,
 }
