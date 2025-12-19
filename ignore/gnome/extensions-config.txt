@@ -30,9 +30,11 @@ window-previews=false
 cli-toggle=false
 countdown-timer=0
 indicator-position-max=2
-prefs-default-height=1042
+prefs-default-height=1008
 prefs-default-width=955
-user-enabled=false
+show-notifications=false
+toggle-shortcut=['']
+user-enabled=true
 
 [dash-in-panel]
 button-margin=0
@@ -68,7 +70,7 @@ dot-color-unfocused-different=false
 dot-position='BOTTOM'
 dot-size=0
 dot-style-focused='SQUARES'
-dot-style-unfocused='DASHES'
+dot-style-unfocused='SOLID'
 extension-version=72
 focus-highlight=true
 focus-highlight-dominant=false
@@ -104,7 +106,7 @@ stockgs-keep-dash=false
 stockgs-keep-top-panel=false
 trans-gradient-bottom-opacity=0.5
 trans-gradient-top-opacity=0.5
-trans-panel-opacity=0.25
+trans-panel-opacity=0.59999999999999998
 trans-use-custom-bg=false
 trans-use-custom-gradient=false
 trans-use-custom-opacity=true
@@ -158,7 +160,7 @@ window-size=(952, 992)
 
 [gsconnect/preferences]
 window-maximized=false
-window-size=(952, 992)
+window-size=(952, 962)
 
 [just-perfection]
 accessibility-menu=false
@@ -205,10 +207,12 @@ vertical-margin=20
 vertical-margin-bottom=20
 window-gap=15
 window-switcher-preview-scale=0.14999999999999999
-winprops=['{"wm_class":"/.*kitty*./i","preferredWidth":"50%"}', '{"wm_class":"/.*ulauncher.*/i","scratch_layer":true,"title":"/.*ulauncher.*/i"}']
+winprops=['{"wm_class":"/.*kitty*./i","preferredWidth":"50%"}', '{"wm_class":"/.*ulauncher.*/i","scratch_layer":true,"title":"/.*ulauncher.*/i"}', '{"wm_class":"/.*brave.*/i","preferredWidth":"50%"}']
 
 [paperwm/keybindings]
 close-window=['<Super>w']
+drift-left=['']
+drift-right=['']
 move-down=['<Control><Super>j']
 move-down-workspace=['<Control><Super>j']
 move-left=['<Control><Super>h']
@@ -216,10 +220,12 @@ move-right=['<Control><Super>l']
 move-up=['<Control><Super>k']
 move-up-workspace=['<Control><Super>k']
 switch-down=['']
+switch-down-or-else-workspace=['<Super>j']
 switch-down-workspace=['<Super>j']
 switch-left=['<Super>h']
 switch-right=['<Super>l']
 switch-up=['']
+switch-up-or-else-workspace=['<Super>k']
 switch-up-workspace=['<Super>k']
 
 [paperwm/workspaces]

@@ -9,11 +9,12 @@ using namespace std;
 using ll = long long;
 using ld = long double;
 #define endl '\n'
+#define MOD 1000000007
 #define ALL(v) (v).begin(), (v).end()
 void Fast();
 
 void solve() {
-  // @t if needed. 15jcc to start
+  // @t if needed. 16jcc to start
 }
 
 int main() {
@@ -21,8 +22,9 @@ int main() {
 
   int t = 1;
   // cin >> t;
-  while (t--)
+  while (t--) {
     solve();
+  }
 }
 
 void Fast() {
