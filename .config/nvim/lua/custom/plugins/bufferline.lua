@@ -13,6 +13,7 @@ return {
           icon = ' ',
         },
         diagnostics = 'nvim_lsp',
+        tab_size = 5,
       },
     }
 

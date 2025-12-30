@@ -30,6 +30,9 @@ return {
           height = 0.8,
         },
       },
+      split_ui = {
+        total_width = 0.325,
+      },
     }
   end,
 }

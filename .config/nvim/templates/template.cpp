@@ -1,8 +1,6 @@
 // Problem: $(PROBLEM)
 // Group: $(GROUP)
 // URL: $(URL)
-// Memory Limit: $(MEMLIM)mb
-// Time Limit: $(TIMELIM)ms
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -11,24 +9,20 @@ using ld = long double;
 #define endl '\n'
 #define MOD 1000000007
 #define ALL(v) (v).begin(), (v).end()
-void Fast();
+#define fori(i, l, r) for (int(i) = (l); (i) < (r); (i)++)
+#define SuperSonic                                                             \
+  ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 
 void solve() {
-  // @t if needed. 16jcc to start
+  // @t to toggle testcases. @s to start SMASHING
 }
 
 int main() {
-  Fast();
+  SuperSonic;
 
   int t = 1;
   // cin >> t;
   while (t--) {
     solve();
   }
-}
-
-void Fast() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr);
 }

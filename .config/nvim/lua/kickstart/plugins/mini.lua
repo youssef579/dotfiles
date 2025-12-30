@@ -9,10 +9,6 @@ return {
       require('mini.pairs').setup()
       require('mini.git').setup()
       require('mini.splitjoin').setup()
-      require('mini.notify').setup {
-        lsp_progress = { enable = false },
-        window = { winblend = 0 },
-      }
 
       -- Session manager
       local sessions = require 'mini.sessions'

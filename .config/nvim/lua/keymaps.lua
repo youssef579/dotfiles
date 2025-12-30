@@ -26,7 +26,7 @@ vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr>', { desc = '[S]ave' })
 vim.keymap.set('n', '<leader>r', '<cmd>w<cr><cmd>!./build.fish<cr>', { desc = '[R]un porject', silent = true })
 
 -- Copy entire file to clipboard
-vim.keymap.set('n', '<C-c>', ':%y+<CR>', { desc = '[C]opy file', silent = true })
+vim.keymap.set('n', '<leader>ya', ':%y+<CR>', { desc = '[Y]ank all', silent = true })
 
 -- ShortCut for Wrapping
 vim.keymap.set({ 'n', 'i', 'v' }, '<A-z>', function()

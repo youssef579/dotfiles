@@ -1,6 +1,6 @@
 ## My dotfiles
 
-Included tools are:
+Included software are:
 - neovim
 - fish
 - kitty
@@ -9,4 +9,5 @@ Included tools are:
 - yazi
 - btop
 - eza
-- my gnome theme that I use
+- my gtk theme (Squared) with some assets
+- gnome extensions

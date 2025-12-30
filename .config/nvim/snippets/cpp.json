@@ -1,0 +1,17 @@
+{
+  "cout": {
+    "prefix": "co",
+    "body": "cout << ${0};",
+    "description": "Cout"
+  },
+  "cin": {
+    "prefix": "ci",
+    "body": "cin >> ${0};",
+    "description": "Cin"
+  },
+  "cerr": {
+    "prefix": "ce",
+    "body": "cerr << ${0};",
+    "description": "Cerr"
+  }
+}
