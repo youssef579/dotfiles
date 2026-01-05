@@ -6,6 +6,7 @@ paperwm@paperwm.github.com
 Vitals@CoreCoding.com
 caffeine@patapon.info
 sound-percentage@subashghimire.info.np
+just-perfection-desktop@just-perfection
 ding@rastersoft.com
 tiling-assistant@ubuntu.com
 ubuntu-appindicators@ubuntu.com
