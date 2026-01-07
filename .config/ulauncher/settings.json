@@ -5,8 +5,8 @@
     "grab-mouse-pointer": true,
     "hotkey-show-app": "<Primary>space",
     "render-on-screen": "mouse-pointer-monitor",
-    "show-indicator-icon": true,
-    "show-recent-apps": "5",
+    "show-indicator-icon": false,
+    "show-recent-apps": "10",
     "terminal-command": "",
     "theme-name": "Monterey-Dark"
 }

@@ -2,6 +2,7 @@
 
 Included software are:
 - neovim
+- niri
 - fish
 - kitty
 - ulauncher
@@ -9,5 +10,4 @@ Included software are:
 - yazi
 - btop
 - eza
-- my gtk theme (Squared) with some assets
-- gnome extensions
+- my theme

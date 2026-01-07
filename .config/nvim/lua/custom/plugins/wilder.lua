@@ -17,7 +17,6 @@ return {
         'renderer',
         wilder.popupmenu_renderer {
           highlighter = {
-            wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
             wilder.lua_fzy_highlighter(), -- requires fzy-lua-native vim plugin found
           },
           highlights = {

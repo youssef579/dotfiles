@@ -12,6 +12,7 @@ return {
         indicator = {
           icon = ' ',
         },
+        always_show_bufferline = false,
         diagnostics = 'nvim_lsp',
         tab_size = 5,
       },

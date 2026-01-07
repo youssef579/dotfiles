@@ -2,8 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     atuin init fish | source
     zoxide init fish | source
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     set -gx EDITOR nvim
+    set -gx XCURSOR_THEME "/usr/share/icons/Obsidian"
+    set -gx XCURSOR_SIZE 25
     set -gx BAT_THEME everforest-soft
     fish_vi_key_bindings
     set fish_greeting
