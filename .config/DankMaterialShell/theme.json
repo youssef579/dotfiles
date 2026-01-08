@@ -1,0 +1,21 @@
+{
+  "name": "Squared",
+  "primary": "#88b7af",
+  "primaryText": "#1e2529",
+  "primaryContainer": "#ff0000",
+  "surface": "#1e2529",
+  "surfaceText": "#bcc4c9",
+  "surfaceVariant": "#293034",
+  "surfaceVariantText": "#bcc4c9",
+  "surfaceTint": "#88b7af",
+  "background": "#ffffff",
+  "backgroundText": "#ff0000",
+  "outline": "#7b8b95",
+  "surfaceContainer": "#0f1314",
+  "surfaceContainerHigh": "#1a2023",
+  "surfaceContainerHighest": "#293034",
+  "error": "#ba706e",
+  "warning": "#d7bd7e",
+  "info": "#7b9cb5",
+  "matugen_type": "scheme-expressive"
+}

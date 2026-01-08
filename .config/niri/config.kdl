@@ -119,7 +119,7 @@ layout {
     default-column-width {}
 
     focus-ring {
-        width 5
+        width 4
         active-color "#4E6866"
         inactive-color "#4E6866"
     }
@@ -180,7 +180,8 @@ workspace "chat"
 
 window-rule {
     draw-border-with-background false
-    geometry-corner-radius 2
+    geometry-corner-radius 10
+    clip-to-geometry true
 }
 
 window-rule {

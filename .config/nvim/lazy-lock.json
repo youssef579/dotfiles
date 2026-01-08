@@ -4,7 +4,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "competitest.nvim": { "branch": "master", "commit": "b42c06ca308906f07912ba9aff015ac2c0831f85" },
   "conform.nvim": { "branch": "master", "commit": "1bf8b5b9caee51507aa51eaed3da5b0f2595c6b9" },
-  "everforest": { "branch": "master", "commit": "b90025cc84dbb9c46df5a2ae540d3f01cf85af74" },
+  "everblush": { "branch": "main", "commit": "678f808d81801b983b6fb8296fb17ba1b2785d7c" },
   "fidget.nvim": { "branch": "main", "commit": "64463022a1f2ff1318ab22a2ea4125ed9313a483" },
   "flash.nvim": { "branch": "main", "commit": "fcea7ff883235d9024dc41e638f164a450c14ca2" },
   "fzy-lua-native": { "branch": "master", "commit": "9d720745d5c2fb563c0d86c17d77612a3519c506" },

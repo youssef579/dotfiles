@@ -1,5 +1,5 @@
 {
-  "currentThemeName": "dynamic",
+  "currentThemeName": "custom",
   "customThemeFile": "/home/youssef/.config/DankMaterialShell/theme.json",
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,
@@ -278,10 +278,6 @@
           "enabled": true
         },
         {
-          "id": "clipboard",
-          "enabled": true
-        },
-        {
           "id": "music",
           "enabled": true,
           "mediaSize": 0
@@ -316,8 +312,8 @@
       "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": true,
-      "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 12,
+      "gothCornerRadiusOverride": true,
+      "gothCornerRadiusValue": 20,
       "borderEnabled": false,
       "borderColor": "surfaceText",
       "borderOpacity": 1,
