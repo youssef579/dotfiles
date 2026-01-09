@@ -9,7 +9,7 @@ if status is-interactive
     fish_vi_key_bindings
     set fish_greeting
 end
-
+set -gx DMS_DISABLE_MATUGEN 1
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
 # if test -f /home/youssef/miniconda3/bin/conda

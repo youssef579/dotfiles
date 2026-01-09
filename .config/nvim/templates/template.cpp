@@ -20,7 +20,7 @@ using ordered_multiset = tree<T, null_type, std::less_equal<T>, rb_tree_tag,
 #define endl '\n'
 #define MOD 1000000007
 #define ALL(v) (v).begin(), (v).end()
-#define fori(i, l, r) for (int(i) = (l); (i) < (r); (i)++)
+#define loop(i, l, r) for (int(i) = (l); (i) < (r); (i)++)
 #define SuperSonic                                                             \
   ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 

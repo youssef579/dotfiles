@@ -70,11 +70,6 @@
       "width": 50
     },
     {
-      "id": "audioOutput",
-      "enabled": true,
-      "width": 50
-    },
-    {
       "id": "nightMode",
       "enabled": true,
       "width": 50
@@ -95,12 +90,17 @@
       "width": 50,
       "instanceId": "mk2maup4i866peby9vm",
       "mountPath": "/"
+    },
+    {
+      "id": "doNotDisturb",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
-  "showWorkspaceApps": false,
+  "showWorkspaceApps": true,
   "maxWorkspaceIcons": 3,
   "workspacesPerMonitor": false,
   "showOccupiedWorkspacesOnly": false,
@@ -127,7 +127,7 @@
   "weatherLocation": "New York, NY",
   "weatherCoordinates": "40.7128,-74.0060",
   "useAutoLocation": true,
-  "weatherEnabled": false,
+  "weatherEnabled": true,
   "networkPreference": "auto",
   "vpnLastConnected": "",
   "iconTheme": "System Default",
@@ -144,7 +144,7 @@
   "fontScale": 1.1,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
-  "notepadFontSize": 14,
+  "notepadFontSize": 48,
   "notepadShowLineNumbers": false,
   "notepadTransparencyOverride": -1,
   "notepadLastCustomTransparency": 0.7,
@@ -257,9 +257,12 @@
           "enabled": true
         },
         {
-          "id": "runningApps",
-          "enabled": true,
-          "runningAppsCompactMode": false
+          "id": "notepadButton",
+          "enabled": true
+        },
+        {
+          "id": "focusedWindow",
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -301,11 +304,20 @@
         },
         {
           "id": "clock",
+          "enabled": true,
+          "clockCompactMode": false
+        },
+        {
+          "id": "prayerTimes",
+          "enabled": true
+        },
+        {
+          "id": "privacyIndicator",
           "enabled": true
         }
       ],
       "spacing": 0,
-      "innerPadding": 3,
+      "innerPadding": 5,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 1,
@@ -328,7 +340,7 @@
       "openOnOverview": false,
       "visible": true,
       "popupGapsAuto": true,
-      "popupGapsManual": 37,
+      "popupGapsManual": 4,
       "maximizeDetection": true
     }
   ],

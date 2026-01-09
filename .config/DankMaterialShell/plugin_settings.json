@@ -1,5 +1,33 @@
 {
   "dankPomodoroTimer": {
-    "enabled": false
+    "enabled": true
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "grimblast": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "criticalThreshold": 10
+  },
+  "prayerTimes": {
+    "enabled": true
+  },
+  "prayerTimesPlugin": {
+    "refreshInterval": 5
+  },
+  "dankLauncherKeys": {
+    "enabled": false,
+    "noTrigger": false,
+    "trigger": "!",
+    "providers": [
+      "niri"
+    ]
   }
 }

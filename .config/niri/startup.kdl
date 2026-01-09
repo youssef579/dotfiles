@@ -1,0 +1,8 @@
+spawn-at-startup "bash" "-c" "
+  wl-paste --watch cliphist store &
+  wl-paste --type image --watch cliphist store &
+"
+
+hotkey-overlay {
+    skip-at-startup
+}
