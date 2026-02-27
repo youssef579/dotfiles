@@ -1,5 +1,6 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "brave-browser"; }

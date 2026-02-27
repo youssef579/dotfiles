@@ -21,6 +21,7 @@ return {
       evaluate_template_modifiers = true,
       testcases_use_single_file = true,
       save_all_files = true,
+      maximum_timeout = 2000,
       template_file = '~/.config/nvim/templates/template.$(FEXT)',
       runner_ui = {
         interface = 'split',

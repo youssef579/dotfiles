@@ -4,7 +4,8 @@
   },
   "calculator": {
     "enabled": true,
-    "trigger": "="
+    "trigger": "=",
+    "calcEngine": "qalc"
   },
   "emojiLauncher": {
     "enabled": true
@@ -23,11 +24,28 @@
     "refreshInterval": 5
   },
   "dankLauncherKeys": {
-    "enabled": false,
+    "enabled": true,
     "noTrigger": false,
     "trigger": "!",
     "providers": [
       "niri"
     ]
+  },
+  "powerOptions": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": ""
+  },
+  "asusControlCenter": {
+    "enabled": true
+  },
+  "gitmojiLauncher": {
+    "enabled": true
+  },
+  "dankKDEConnect": {
+    "enabled": true
+  },
+  "dankGifSearch": {
+    "enabled": true
   }
 }

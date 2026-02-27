@@ -9,6 +9,9 @@ return {
           theme = 'everforest',
           globalstatus = true,
         },
+        sections = {
+          lualine_x = { 'filesize', 'fileformat' },
+        },
       }
     end,
   },

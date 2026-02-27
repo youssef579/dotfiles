@@ -509,7 +509,7 @@ StScrollBar {
     padding-right: 6px; }
   .popup-menu-item:active, .popup-menu-item.selected, .popup-menu-item:hover, .popup-menu-item:focus {
     color: #fefefe !important;
-    background-color: #2e3639 !important;
+    background-color: #2e3639;
     box-shadow: none !important; }
   .popup-menu-item:checked {
     background-color: #273035 !important;
@@ -729,7 +729,7 @@ StScrollBar {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
     color: #BCC4C9;
-    /* background-color: #252B2E; */
+    background-color: #252B2E;
     box-shadow: none !important;
     transition-duration: 100ms; }
     #panel .panel-button, #panel .panel-button.clock-display .clock {
@@ -738,8 +738,8 @@ StScrollBar {
       -st-icon-style: symbolic;
       margin-left: 4px;
       margin-right: 4px; }
-    /* #panel .panel-button.clock-display .clock { */
-    /*   background-color: #252B2E; } */
+    #panel .panel-button.clock-display .clock {
+      background-color: #252B2E; }
     #panel .panel-button:hover.clock-display, #panel .panel-button:active.clock-display, #panel .panel-button:overview.clock-display, #panel .panel-button:focus.clock-display, #panel .panel-button:checked.clock-display {
       background-color: transparent !important; }
     #panel .panel-button:hover, #panel .panel-button:hover.clock-display .clock, #panel .panel-button:active, #panel .panel-button:active.clock-display .clock, #panel .panel-button:overview, #panel .panel-button:overview.clock-display .clock, #panel .panel-button:focus, #panel .panel-button:focus.clock-display .clock, #panel .panel-button:checked, #panel .panel-button:checked.clock-display .clock {
@@ -1116,7 +1116,7 @@ StScrollBar {
   padding: 2px;
   height: 30px;
   width: 30px;
-  box-shadow: 0px 0px 10px #060809; }
+  box-shadow: 0px 0px 3px rgba(6, 8, 9, 0.3); }
   .window-close StIcon {
     icon-size: 23px; }
   .window-close:hover {
@@ -2203,4 +2203,5 @@ StScrollBar {
 
 .cosmic-dock .app-well-app:hover .overview-icon, .cosmic-dock .app-well-app:focus .overview-icon, .cosmic-dock .app-well-app:selected .overview-icon {
   border-radius: 11px; }
+
 /*# sourceMappingURL=gnome-shell.css.map */

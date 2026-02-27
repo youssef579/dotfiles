@@ -1,0 +1,147 @@
+snippet ci
+  cin >> ${0};
+snippet co
+  cout << ${0};
+snippet ce
+  cerr << ${0};
+snippet !spf
+  const int N = 1e6 + 1;
+  array<int, N> spf;
+
+  void SPF() {
+    loop(i, 2, N) {
+      if (spf[i] == 0) {
+        spf[i] = i;
+        for (ll j = 1ll * i * i; j < N; j += i)
+          spf[j] = spf[j] ? min(i, spf[j]) : i;
+      }
+    }
+  }
+snippet !sieve
+  const int N = 1e6 + 1;
+  array<bool, N> isPrime;
+
+  void Sieve() {
+    isPrime.fill(true);
+    isPrime[0] = isPrime[1] = false;
+
+    loop(i, 2, N) {
+      if (isPrime[i]) {
+        for (ll j = 1ll * i * i; j < N; j += i)
+          isPrime[j] = false;
+      }
+    }
+  }
+snippet !mod_arithmetics
+  const int MOD = 1e9 + 7;
+
+  ll add(ll a, ll b) { return (a % MOD + b % MOD) % MOD; }
+
+  ll mult(ll a, ll b) { return (a % MOD * b % MOD) % MOD; }
+
+  ll sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
+
+  ll fp(ll base, ll power) {
+    if (power == 0)
+      return 1;
+
+    ll hp = fp(base, power / 2);
+    ll fullPower = mult(hp, hp);
+
+    if (power % 2 != 0)
+      fullPower = mult(fullPower, base);
+
+    return fullPower;
+  }
+
+  ll divi(ll a, ll b) { return mult(a, fp(b, MOD - 2)); }
+snippet !combinatorics
+  const int N = 1e6 + 1;
+  array<int, N> fact{1};
+
+  ll nPr(ll n, ll r) {
+    if (r > n)
+      return 0;
+    if (n < 0 || r < 0)
+      return 0;
+    return divi(fact[n], fact[n - r]);
+  }
+
+  ll nCr(ll n, ll r) {
+    if (r > n)
+      return 0;
+    if (n < 0 || r < 0)
+      return 0;
+    return divi(fact[n], mult(fact[r], fact[n - r]));
+  }
+
+  ll sNb(ll n, ll k) { return nCr(n + k - 1, n); }
+
+  void precalFactorial() { loop(i, 1, N) fact[i] = mult(fact[i - 1], i); }
+snippet !cpptemp
+  #include <bits/stdc++.h>
+  using namespace std;
+  using ll = long long;
+  using ld = long double;
+
+  #define endl '\n'
+  #define all(v) (v).begin(), (v).end()
+  #define len(v) (int)(v).size()
+  #define loop(i, l, r)                                                          \
+    for (int(i) = (l); (r) > (l) ? (i) < (r) : (i) > (r);                        \
+         (r) > (l) ? (i)++ : (i)--)
+  #define SuperSonic ios::sync_with_stdio(false), cin.tie(nullptr)
+
+  void solve() {
+    ${0}
+  }
+
+  int main() {
+    SuperSonic;
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+      solve();
+    }
+  }
+
+snippet !ordered_set
+  #include <bits/stdc++.h>
+  #include <ext/pb_ds/assoc_container.hpp>
+  #include <ext/pb_ds/tree_policy.hpp>
+
+  using namespace std;
+  using ll = long long;
+  using ld = long double;
+  using namespace __gnu_pbds;
+  template <class T>
+  using ordered_set = tree<T, null_type, std::less<T>, rb_tree_tag,
+                           tree_order_statistics_node_update>;
+  template <class T>
+  using ordered_multiset = tree<T, null_type, std::less_equal<T>, rb_tree_tag,
+                                tree_order_statistics_node_update>;
+
+  #define endl '\n'
+  #define all(v) (v).begin(), (v).end()
+  #define len(v) (int)(v).size()
+  #define loop(i, l, r)                                                          \
+    for (int(i) = (l); (r) > (l) ? (i) < (r) : (i) > (r);                        \
+         (r) > (l) ? (i)++ : (i)--)
+  #define SuperSonic ios::sync_with_stdio(false), cin.tie(nullptr)
+
+  void solve() {
+    ${0}
+  }
+
+  int main() {
+    SuperSonic;
+
+    int t = 1;
+    // cin >> t;
+    while (t--) {
+      solve();
+    }
+  }
