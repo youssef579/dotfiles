@@ -25,16 +25,16 @@ set -gx DMS_DISABLE_MATUGEN 1
 
 # You must call it on initialization or listening to directory switching won't work
 # load_nvm > /dev/stderr
-function nvm
-  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
-
-set -x NVM_DIR ~/.nvm
-nvm use default --silent
-
-# pnpm
-set -gx PNPM_HOME "/home/youssef/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
+# function nvm
+#   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+# end
+#
+# set -x NVM_DIR ~/.nvm
+# nvm use default --silent
+#
+# # pnpm
+# set -gx PNPM_HOME "/home/youssef/.local/share/pnpm"
+# if not string match -q -- $PNPM_HOME $PATH
+#   set -gx PATH "$PNPM_HOME" $PATH
+# end
+# # pnpm end

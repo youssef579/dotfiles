@@ -191,6 +191,17 @@
   "centeringMode": "index",
   "clockDateFormat": "ddd MMM d",
   "lockDateFormat": "ddd MMM d",
+  "greeterRememberLastSession": true,
+  "greeterRememberLastUser": true,
+  "greeterEnableFprint": false,
+  "greeterEnableU2f": false,
+  "greeterWallpaperPath": "",
+  "greeterUse24HourClock": true,
+  "greeterShowSeconds": false,
+  "greeterPadHours12Hour": false,
+  "greeterLockDateFormat": "",
+  "greeterFontFamily": "",
+  "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "grid",
   "spotlightModalViewMode": "list",
@@ -204,7 +215,9 @@
   "spotlightSectionViewModes": {
     "apps": "list"
   },
-  "appDrawerSectionViewModes": {},
+  "appDrawerSectionViewModes": {
+    "apps": "list"
+  },
   "niriOverviewOverlayEnabled": true,
   "dankLauncherV2Size": "compact",
   "dankLauncherV2BorderEnabled": false,
@@ -245,7 +258,7 @@
   "fontScale": 1.1,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
-  "notepadFontSize": 24,
+  "notepadFontSize": 34,
   "notepadShowLineNumbers": false,
   "notepadTransparencyOverride": -1,
   "notepadLastCustomTransparency": 0.7,
@@ -256,7 +269,7 @@
   "soundPluggedIn": true,
   "acMonitorTimeout": 0,
   "acLockTimeout": 0,
-  "acSuspendTimeout": 0,
+  "acSuspendTimeout": 300,
   "acSuspendBehavior": 0,
   "acProfileName": "",
   "batteryMonitorTimeout": 0,
@@ -305,6 +318,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
+  "matugenTemplateZed": true,
   "showDock": false,
   "dockAutoHide": true,
   "dockSmartAutoHide": false,
@@ -346,6 +360,8 @@
   "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 15,
+  "enableU2f": false,
+  "u2fMode": "or",
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 0,
@@ -429,6 +445,10 @@
         {
           "id": "focusedWindow",
           "enabled": true
+        },
+        {
+          "id": "customRunningApps",
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -447,18 +467,9 @@
           "enabled": true
         },
         {
-          "id": "music",
-          "enabled": true,
-          "mediaSize": 0
-        },
-        {
           "id": "keyboard_layout_name",
           "enabled": true,
           "keyboardLayoutNameCompactMode": true
-        },
-        {
-          "id": "notificationButton",
-          "enabled": true
         },
         {
           "id": "battery",
@@ -466,19 +477,38 @@
         },
         {
           "id": "controlCenterButton",
-          "enabled": true
+          "enabled": true,
+          "showNetworkIcon": true,
+          "showBluetoothIcon": true,
+          "showAudioIcon": true,
+          "showAudioPercent": false,
+          "showVpnIcon": true,
+          "showBrightnessIcon": false,
+          "showBrightnessPercent": false,
+          "showMicIcon": false,
+          "showMicPercent": false,
+          "showBatteryIcon": false,
+          "showPrinterIcon": false,
+          "showScreenSharingIcon": true
         },
         {
           "id": "clock",
-          "enabled": true,
-          "clockCompactMode": false
-        },
-        {
-          "id": "prayerTimes",
           "enabled": true
         },
         {
-          "id": "privacyIndicator",
+          "id": "separator",
+          "enabled": true
+        },
+        {
+          "id": "timeUntil",
+          "enabled": true
+        },
+        {
+          "id": "separator",
+          "enabled": true
+        },
+        {
+          "id": "idleInhibitor",
           "enabled": true
         }
       ],
@@ -500,14 +530,20 @@
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 1,
-      "fontScale": 1.1,
+      "fontScale": 1,
       "autoHide": false,
       "autoHideDelay": 250,
-      "openOnOverview": false,
+      "openOnOverview": true,
       "visible": true,
       "popupGapsAuto": true,
       "popupGapsManual": 4,
-      "maximizeDetection": true
+      "maximizeDetection": true,
+      "clickThrough": false,
+      "widgetPadding": 8,
+      "iconScale": 1,
+      "shadowIntensity": 0,
+      "shadowOpacity": 10,
+      "shadowColorMode": "surface"
     }
   ],
   "desktopClockEnabled": false,

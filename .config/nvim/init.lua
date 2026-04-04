@@ -250,6 +250,13 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-f>', '<C-f>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-b>', '<C-b>zz', { noremap = true, silent = true })
 
+vim.keymap.set(
+  'n',
+  '<leader>r',
+  '<cmd>wa | !cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build build && ./build/bin/main <cr>',
+  { silent = true }
+)
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -633,6 +640,10 @@ require('lazy').setup({
         },
         ts_ls = {},
         emmet_language_server = {},
+        eslint = {},
+        html = {},
+        cssls = {},
+        somesass_ls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -704,8 +715,12 @@ require('lazy').setup({
         lua = { 'stylua' },
         cpp = { 'clang-format' },
         json = { 'prettier' },
+        html = { 'prettier' },
+        css = { 'prettier' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
         markdown = { 'markdownlint' },
       },
     },
@@ -719,6 +734,7 @@ require('lazy').setup({
       -- Snippet Engine
       {
         'L3MON4D3/LuaSnip',
+        dependencies = { 'rafamadriz/friendly-snippets' },
         version = '2.*',
         build = (function()
           -- Build Step is needed for regex support in snippets.
@@ -728,6 +744,7 @@ require('lazy').setup({
           return 'make install_jsregexp'
         end)(),
         config = function()
+          require('luasnip.loaders.from_vscode').lazy_load { exclude = { 'cpp' } }
           require('luasnip.loaders.from_snipmate').lazy_load()
           local ls = require 'luasnip'
           vim.keymap.set({ 'i' }, '<C-y>', function() ls.expand() end, { silent = true })

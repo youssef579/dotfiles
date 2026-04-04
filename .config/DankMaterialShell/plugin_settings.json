@@ -5,10 +5,12 @@
   "calculator": {
     "enabled": true,
     "trigger": "=",
-    "calcEngine": "qalc"
+    "calcEngine": "qalc",
+    "persistHistoryOnFile": false,
+    "qalcCommand": "qalc -i -t -set \"decimal comma off\" -c 0"
   },
   "emojiLauncher": {
-    "enabled": true
+    "enabled": false
   },
   "grimblast": {
     "enabled": true
@@ -18,7 +20,11 @@
     "criticalThreshold": 10
   },
   "prayerTimes": {
-    "enabled": true
+    "enabled": false,
+    "use12H": true,
+    "iconOnly": true,
+    "method": "Auto (based on location)",
+    "showSeconds": false
   },
   "prayerTimesPlugin": {
     "refreshInterval": 5
@@ -47,5 +53,40 @@
   },
   "dankGifSearch": {
     "enabled": true
+  },
+  "screenshotToggle": {
+    "enabled": true
+  },
+  "timeUntil": {
+    "enabled": true,
+    "targetTimestamp": "2026-04-02 17:00",
+    "label": "Mid",
+    "unit": "days"
+  },
+  "customRunningApps": {
+    "enabled": true,
+    "itemPercentage": 71,
+    "spaceBetweenItems": 0,
+    "showAdditionalIndicator": true,
+    "iconBackgroundSize": 127,
+    "indicatorLocation": "bottom",
+    "indicatorType": "circle",
+    "indicatorSize": 14
+  },
+  "niriScreenshot": {
+    "enabled": true
+  },
+  "dms-niri-screenshot": {
+    "mode": "screen"
+  },
+  "unifiedTaskbar": {
+    "enabled": false,
+    "compactMode": false,
+    "groupByApp": true,
+    "reverseMonitorOrder": false
+  },
+  "pkgUpdate": {
+    "enabled": true,
+    "terminalApp": "kitty"
   }
 }
