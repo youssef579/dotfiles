@@ -10,10 +10,14 @@ window-rule {
 }
 
 window-rule {
-    match title="kitty"
+    match app-id="kitty"
     open-on-workspace "code"
     open-maximized true
     open-focused true
+
+    background-effect {
+        blur true
+    }
 }
 
 window-rule {

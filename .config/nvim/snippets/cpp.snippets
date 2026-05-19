@@ -9,11 +9,12 @@ snippet !spf
   array<int, N> spf;
 
   void SPF() {
-    loop(i, 2, N) {
+    for (int i = 2; i < N; i++) {
       if (spf[i] == 0) {
         spf[i] = i;
         for (ll j = 1ll * i * i; j < N; j += i)
-          spf[j] = spf[j] ? min(i, spf[j]) : i;
+          if (!spf[j])
+            spf[j] = i;
       }
     }
   }
@@ -25,7 +26,7 @@ snippet !sieve
     isPrime.fill(true);
     isPrime[0] = isPrime[1] = false;
 
-    loop(i, 2, N) {
+    for (int i = 2; i < N; i++) {
       if (isPrime[i]) {
         for (ll j = 1ll * i * i; j < N; j += i)
           isPrime[j] = false;
@@ -57,65 +58,58 @@ snippet !mod_arithmetics
   ll divi(ll a, ll b, ll mod = MOD) { return mult(a, fp(b, mod - 2)); }
 snippet !combinatorics
   const int N = 1e6 + 1;
-  array<int, N> fact{1};
+  array<int, N> fact, invFact;
 
   ll nPr(ll n, ll r, ll mod = MOD) {
-    if (r > n)
-      return 0;
-    if (n < 0 || r < 0)
-      return 0;
-    return divi(fact[n], fact[n - r], mod);
+    return r > n || n < 0 || r < 0 ? 0 : mult(fact[n], invFact[n - r], mod);
   }
 
   ll nCr(ll n, ll r, ll mod = MOD) {
-    if (r > n)
-      return 0;
-    if (n < 0 || r < 0)
-      return 0;
-    return divi(fact[n], mult(fact[r], fact[n - r], mod), mod);
+    return r > n || n < 0 || r < 0
+               ? 0
+               : mult(fact[n], mult(invFact[r], invFact[n - r], mod), mod);
   }
 
   ll sNb(ll n, ll k, ll mod = MOD) { return nCr(n + k - 1, n, mod); }
 
-  void precalFactorial() { loop(i, 1, N) fact[i] = mult(fact[i - 1], i); }
+  void precalFactorial(ll mod = MOD) {
+    fact[0] = 1;
+    for (int i = 1; i < N; i++)
+      fact[i] = mult(fact[i - 1], i, mod);
+
+    invFact[N - 1] = divi(1, fact[N - 1], mod);
+    for (int i = N - 2; i > -1; i--)
+      invFact[i] = mult(invFact[i + 1], i + 1, mod);
+  }
 snippet !cpptemp
   #include <bits/stdc++.h>
+  // #define int ll
   using namespace std;
   using ll = long long;
   using ld = long double;
 
   #define endl '\n'
   #define all(v) (v).begin(), (v).end()
+  #define rall(v) (v).rbegin(), (v).rend()
   #define len(v) (int)(v).size()
-  #define loop(i, l, r)                                                          \
-    for (int(i) = (l); (r) > (l) ? (i) < (r) : (i) > (r);                        \
-         (r) > (l) ? (i)++ : (i)--)
-  #define SuperSonic ios::sync_with_stdio(false), cin.tie(nullptr)
+  #define Ragaey ios::sync_with_stdio(false), cin.tie(nullptr)
 
   void solve() {
     ${0}
   }
 
-  int main() {
-    SuperSonic;
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+  signed main() {
+    Ragaey;
 
     int t = 1;
     // cin >> t;
-    while (t--) {
+    while (t--)
       solve();
-    }
   }
 
 snippet !ordered_set
-  #include <bits/stdc++.h>
   #include <ext/pb_ds/assoc_container.hpp>
   #include <ext/pb_ds/tree_policy.hpp>
-
-  using namespace std;
-  using ll = long long;
-  using ld = long double;
   using namespace __gnu_pbds;
   template <class T>
   using ordered_set = tree<T, null_type, std::less<T>, rb_tree_tag,
@@ -124,24 +118,71 @@ snippet !ordered_set
   using ordered_multiset = tree<T, null_type, std::less_equal<T>, rb_tree_tag,
                                 tree_order_statistics_node_update>;
 
-  #define endl '\n'
-  #define all(v) (v).begin(), (v).end()
-  #define len(v) (int)(v).size()
-  #define loop(i, l, r)                                                          \
-    for (int(i) = (l); (r) > (l) ? (i) < (r) : (i) > (r);                        \
-         (r) > (l) ? (i)++ : (i)--)
-  #define SuperSonic ios::sync_with_stdio(false), cin.tie(nullptr)
+snippet !segment_tree
+  struct Node {
+      ll sum;
 
-  void solve() {
-    ${0}
-  }
+      Node() {
+          sum = 0;
+      }
 
-  int main() {
-    SuperSonic;
+      Node(int x) {
+          sum = x;
+      }
 
-    int t = 1;
-    // cin >> t;
-    while (t--) {
-      solve();
-    }
-  }
+      void change(int x) {
+          sum = x;
+      }
+  };
+
+  struct SegTree {
+      int tree_size;
+      vector<Node> segData;
+
+      SegTree(int n) {
+          tree_size = 1;
+          while (tree_size < n) tree_size *= 2;
+          segData.assign(2 * tree_size, Node());
+      }
+
+      Node merge(Node &lf, Node &ri) {
+          Node ans = Node();
+          ans.sum = lf.sum + ri.sum;
+          return ans;
+      }
+
+      void set(int idx, int val, int ni, int lx, int rx) {
+          if (rx - lx == 1) {
+              segData[ni].change(val);
+              return;
+          }
+          int mid = (lx + rx) / 2;
+       llx < mid) {
+              set(idx, val, 2 * ni + 1, lx, mid);
+          } else {
+              set(idx, val, 2 * ni + 2, mid, rx);
+          }
+          segData[ni] = merge(segData[2 * ni + 1], segData[2 * ni + 2]);
+      }
+
+      void set(int idx, int val) {
+          set(idx, val, 0, 0, tree_size);
+      }
+
+      Node get(int l, int r, int ni, int lx, int rx) {
+          if (lx >= l && rx <= r) {
+              return segData[ni];
+          }
+          if (lx >= r || rx <= l) {
+              return Node();
+          }
+          int mid = (lx + rx) / 2;
+          Node lf = get(l, r, 2 * ni + 1, lx, mid);
+          Node ri = get(l, r, 2 * ni + 2, mid, rx);
+          return merge(lf, ri);
+      }
+
+      ll get(int l, int r) {
+          return get(l, r, 0, 0, tree_size).sum;
+      }
+  };
