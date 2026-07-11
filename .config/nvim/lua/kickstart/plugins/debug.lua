@@ -32,6 +32,11 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
+      '<F4>',
+      function() require('dap').terminate() end,
+      desc = 'Debug: Terminate',
+    },
+    {
       '<F1>',
       function() require('dap').step_into() end,
       desc = 'Debug: Step Into',
@@ -81,6 +86,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'codelldb',
       },
     }
 
@@ -104,7 +110,62 @@ return {
           disconnect = '⏏',
         },
       },
+      layouts = {
+        {
+          -- Sidebar tray
+          elements = {
+            { id = 'scopes', size = 0.40 },
+            { id = 'watches', size = 0.40 },
+            -- { id = 'breakpoints', size = 0.20 },
+            { id = 'console', size = 0.20 },
+          },
+          position = 'left',
+          size = 40,
+        },
+        -- {
+        --   -- Bottom tray (Now with ONLY the console)
+        --   elements = {
+        --     { id = 'console', size = 1.0 }, -- Takes up 100% of the bottom tray width
+        --   },
+        --   position = 'bottom',
+        --   size = 10, -- Adjusted slightly smaller since it's just one window
+        -- },
+      },
+      floating = {
+        max_height = nil,
+        max_width = nil,
+        border = 'single',
+        mappings = {
+          close = { 'q', '<Esc>' },
+        },
+      },
     }
+
+    -- ADDED: C / C++ Configuration
+    -- This sets up the launch properties. When you hit F5, it will prompt you
+    -- to type in the path to your compiled executable.
+    dap.configurations.cpp = {
+      {
+        name = 'Launch file',
+        type = 'codelldb',
+        request = 'launch',
+        program = function()
+          -- Compiles the file inside its own folder before debugging
+          local file_path = vim.api.nvim_buf_get_name(0)
+          local dir = vim.fs.dirname(file_path)
+          local file_name = vim.fs.basename(file_path)
+
+          os.execute(string.format('cd "%s" && g++ -g "%s" -o a.out', dir, file_name))
+          return dir .. '/a.out'
+        end,
+        -- THE MAGIC LINE: Tells the debugger to execute FROM the problem folder
+        cwd = function() return vim.fs.dirname(vim.api.nvim_buf_get_name(0)) end,
+        stopOnEntry = false,
+      },
+    }
+
+    -- Reuse the C++ configuration for plain C projects
+    dap.configurations.c = dap.configurations.cpp
 
     -- Change breakpoint icons
     -- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })

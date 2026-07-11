@@ -15,11 +15,12 @@ input {
     touchpad {
         // off
         tap
-        // dwt
+        dwt
         // dwtp
         // drag false
         // drag-lock
         natural-scroll
+        scroll-factor 0.3
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -145,7 +146,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    off
+    // off
 }
 
 blur {

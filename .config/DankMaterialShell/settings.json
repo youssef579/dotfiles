@@ -263,7 +263,7 @@
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 31,
-  "notepadShowLineNumbers": true,
+  "notepadShowLineNumbers": false,
   "notepadTransparencyOverride": 1,
   "notepadLastCustomTransparency": 1,
   "soundsEnabled": true,
@@ -292,6 +292,7 @@
   "brightnessDevicePins": {},
   "wifiNetworkPins": {
     "preferredWifi": [
+      "narzo 50A",
       "WE_A0488C",
       "oplus_co_apmoeh"
     ]
@@ -331,16 +332,16 @@
   "matugenTemplateEmacs": true,
   "matugenTemplateZed": true,
   "showDock": false,
-  "dockAutoHide": true,
+  "dockAutoHide": false,
   "dockSmartAutoHide": false,
   "dockGroupByApp": true,
   "dockOpenOnOverview": false,
-  "dockPosition": 1,
+  "dockPosition": 2,
   "dockSpacing": 4,
   "dockBottomGap": 0,
   "dockMargin": 0,
   "dockIconSize": 40,
-  "dockIndicatorStyle": "circle",
+  "dockIndicatorStyle": "line",
   "dockBorderEnabled": false,
   "dockBorderColor": "surfaceText",
   "dockBorderOpacity": 1,
@@ -511,7 +512,11 @@
           "enabled": true
         },
         {
-          "id": "timeUntil",
+          "id": "discordVoice",
+          "enabled": true
+        },
+        {
+          "id": "prayerTimes",
           "enabled": true
         }
       ],

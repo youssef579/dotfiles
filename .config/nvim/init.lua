@@ -174,6 +174,7 @@ vim.opt.fillchars = 'eob: ' -- Remove the ~'s
 vim.o.wrap = false -- Disable line wrap
 vim.opt.termguicolors = true
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+vim.o.swapfile = false
 
 -- Restore the cursor position
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -251,12 +252,12 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-f>', '<C-f>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-b>', '<C-b>zz', { noremap = true, silent = true })
 
-vim.keymap.set(
-  'n',
-  '<leader>r',
-  '<cmd>wa | !cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build build && ./build/bin/main <cr>',
-  { silent = true }
-)
+-- vim.keymap.set(
+--   'n',
+--   '<leader>r',
+--   '<cmd>wa | !cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build build && ./build/bin/main <cr>',
+--   { silent = true }
+-- )
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -296,7 +297,7 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
-  { 'NMAC427/guess-indent.nvim', opts = {} },
+  -- { 'NMAC427/guess-indent.nvim', opts = {} },
 
   -- Alternatively, use `config = function() ... end` for full control over the configuration.
   -- If you prefer to call `setup` explicitly, use:
@@ -711,7 +712,7 @@ require('lazy').setup({
     },
     opts = {
       notify_on_error = false,
-      format_on_save = true,
+      format_on_save = false,
       formatters_by_ft = {
         lua = { 'stylua' },
         cpp = { 'clang-format' },
@@ -931,11 +932,9 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`

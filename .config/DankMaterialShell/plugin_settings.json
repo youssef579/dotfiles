@@ -1,6 +1,7 @@
 {
   "dankPomodoroTimer": {
-    "enabled": true
+    "enabled": false,
+    "autoSetDND": true
   },
   "calculator": {
     "enabled": true,
@@ -10,7 +11,7 @@
     "qalcCommand": "qalc -i -t -set \"decimal comma off\" -c 0"
   },
   "emojiLauncher": {
-    "enabled": true,
+    "enabled": false,
     "recentEmojis": "🔥,👉"
   },
   "grimblast": {
@@ -24,14 +25,14 @@
     "enabled": false,
     "use12H": true,
     "iconOnly": true,
-    "method": "Auto (based on location)",
+    "method": "5",
     "showSeconds": false
   },
   "prayerTimesPlugin": {
     "refreshInterval": 5
   },
   "dankLauncherKeys": {
-    "enabled": true,
+    "enabled": false,
     "noTrigger": false,
     "trigger": "!",
     "providers": [
@@ -59,9 +60,9 @@
     "enabled": true
   },
   "timeUntil": {
-    "enabled": true,
-    "targetTimestamp": "2026-05-05",
-    "label": "SP Game",
+    "enabled": false,
+    "targetTimestamp": "2026-06-09",
+    "label": "SP",
     "unit": "days"
   },
   "customRunningApps": {
@@ -89,5 +90,9 @@
   "pkgUpdate": {
     "enabled": true,
     "terminalApp": "kitty"
+  },
+  "discordVoice": {
+    "enabled": true,
+    "accessToken": "MjA3NjQ2NjczOTAyNTAxODg4.NITQRZmF8blwRpHywr0VoRDdiQt4jF"
   }
 }

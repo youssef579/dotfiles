@@ -32,7 +32,7 @@ return {
         },
       },
       split_ui = {
-        total_width = 0.325,
+        total_width = 0.5,
       },
     }
   end,

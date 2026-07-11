@@ -16,6 +16,14 @@ return {
       auto_restore_last_session = true,
       auto_create = false,
       auto_delete_empty_sessions = false,
+
+      bypass_session_save_file_types = {
+        'leetcode.nvim',
+        'alpha',
+        'dashboard',
+        'neo-tree',
+        'NvimTree',
+      },
     }
   end,
 }
