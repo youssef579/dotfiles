@@ -13,11 +13,10 @@ using ld = long double;
 #define sep 579
 #endif
 
-// #define int ll
+#define int ll
 #define endl '\n'
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
-#define len(v) (int)(v).size()
 #define Ragaey ios::sync_with_stdio(false), cin.tie(nullptr)
 
 void solve() {
@@ -27,8 +26,8 @@ void solve() {
 signed main() {
   Ragaey;
 
-  int t = 1;
-  // cin >> t;
-  while (t--)
+  int tc = 1;
+  // cin >> tc;
+  while (tc--)
     solve();
 }

@@ -635,17 +635,21 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       local servers = {
         clangd = {
+          cmd = { -- Memory-saving condiguration
+            'clangd',
+            '--background-index=false', -- Disables background indexing for the workspace
+            '--pch-storage=disk', -- Stores precompiled headers on disk
+            '--malloc-trim', -- Returns freed memory to the OS (Linux only)
+            '-j=1', -- Restricts background worker threads
+            '--limit-results=50',
+            '--clang-tidy=false', -- Disables heavy static analysis for CP
+          },
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
           end,
         },
-        ts_ls = {},
-        emmet_language_server = {},
-        eslint = {},
-        html = {},
-        cssls = {},
-        somesass_ls = {},
+        jdtls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -686,12 +690,21 @@ require('lazy').setup({
               checkThirdParty = false,
               -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
               --  See https://github.com/neovim/nvim-lspconfig/issues/3189
-              library = vim.api.nvim_get_runtime_file('', true),
+              -- library = vim.api.nvim_get_runtime_file('', true),
+              library = {
+                vim.env.VIMRUNTIME,
+              },
+              useGitIgnore = true,
             },
           })
         end,
         settings = {
-          Lua = {},
+          Lua = {
+            workspace = {
+              maxPreload = 1000,
+              preloadFileSize = 100,
+            },
+          },
         },
       })
       vim.lsp.enable 'lua_ls'

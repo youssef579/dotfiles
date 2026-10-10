@@ -7,6 +7,7 @@ window-rule {
     geometry-corner-radius 10
     tiled-state true
     clip-to-geometry true
+  // opacity 0.5
 }
 
 window-rule {

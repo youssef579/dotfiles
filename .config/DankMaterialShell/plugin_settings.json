@@ -51,7 +51,8 @@
     "enabled": true
   },
   "dankKDEConnect": {
-    "enabled": true
+    "enabled": true,
+    "selectedDeviceId": ""
   },
   "dankGifSearch": {
     "enabled": true
@@ -93,6 +94,13 @@
   },
   "discordVoice": {
     "enabled": true,
-    "accessToken": "MjA3NjQ2NjczOTAyNTAxODg4.NITQRZmF8blwRpHywr0VoRDdiQt4jF"
+    "accessToken": "MjA3NjQ2NjczOTAyNTAxODg4.iuTtTriONZYxswEmuE226qDas2EdYl"
+  },
+  "dmsThemeSync": {
+    "enabled": true,
+    "folderColorBaseThemeDark": "",
+    "folderColorBaseThemeLight": "",
+    "folderColorBaseTheme": "",
+    "qtSyncMode": "auto"
   }
 }

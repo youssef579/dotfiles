@@ -1,0 +1,28 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "dankBatteryAlerts": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankBatteryAlerts",
+      "commit": "e774a9756f2a50499c37a5513f28bee4ebe81d73"
+    },
+    "dankLauncherKeys": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankLauncherKeys",
+      "commit": "e774a9756f2a50499c37a5513f28bee4ebe81d73"
+    },
+    "dankPomodoroTimer": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankPomodoroTimer",
+      "commit": "e774a9756f2a50499c37a5513f28bee4ebe81d73"
+    },
+    "discordVoice": {
+      "repo": "https://github.com/PandorasFox/dms-discord-widget",
+      "commit": "937e33a6c362546fa0a0e8546ff565b3f0945e0b"
+    },
+    "dmsThemeSync": {
+      "repo": "https://github.com/arqueon/dms-theme-sync",
+      "commit": "090867723a05271d13c492104cf7c4c28028924b"
+    }
+  }
+}

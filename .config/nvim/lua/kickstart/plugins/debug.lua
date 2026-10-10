@@ -114,22 +114,21 @@ return {
         {
           -- Sidebar tray
           elements = {
-            { id = 'scopes', size = 0.40 },
-            { id = 'watches', size = 0.40 },
+            { id = 'scopes', size = 0.50 },
+            { id = 'watches', size = 0.50 },
             -- { id = 'breakpoints', size = 0.20 },
-            { id = 'console', size = 0.20 },
           },
           position = 'left',
           size = 40,
         },
-        -- {
-        --   -- Bottom tray (Now with ONLY the console)
-        --   elements = {
-        --     { id = 'console', size = 1.0 }, -- Takes up 100% of the bottom tray width
-        --   },
-        --   position = 'bottom',
-        --   size = 10, -- Adjusted slightly smaller since it's just one window
-        -- },
+        {
+          -- Bottom tray (Now with ONLY the console)
+          elements = {
+            { id = 'console', size = 1.0 }, -- Takes up 100% of the bottom tray width
+          },
+          position = 'bottom',
+          size = 15, -- Adjusted slightly smaller since it's just one window
+        },
       },
       floating = {
         max_height = nil,

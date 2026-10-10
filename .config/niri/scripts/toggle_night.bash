@@ -1,8 +1,8 @@
 #!/bin/bash
 current=$(dms ipc call night status)
-if [ "$current" = "Night mode is disabled" ]; then
-  dms ipc call brightness set 10 backlight:intel_backlight
+if [[ "$current" == *"disabled"* ]]; then
+  dms brightness set backlight:intel_backlight 10
 else
-  dms ipc call brightness set 50 backlight:intel_backlight
+  dms brightness set backlight:intel_backlight 50
 fi
 dms ipc call night toggle

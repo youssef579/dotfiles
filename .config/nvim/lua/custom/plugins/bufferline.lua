@@ -22,8 +22,8 @@ return {
     vim.keymap.set('n', 'gb', bufferline.pick, { desc = 'Go to Buffer' })
     vim.keymap.set('n', 'gD', bufferline.close_with_pick, { desc = 'Delete Buffer' })
     vim.keymap.set('n', '<leader>bo', bufferline.close_others, { desc = 'Delete Others' })
-    vim.keymap.set('n', '<leader>ba', '<cmd>bufdo bd<cr>', { desc = 'Delete All' })
-    vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>', { desc = 'Delete Left Buffers' })
-    vim.keymap.set('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>', { desc = 'Delete Right Buffers' })
+    vim.keymap.set('n', '<leader>ba', '<cmd>%bd<cr>', { desc = 'Delete All' })
+    vim.keymap.set('n', '<leader>bh', '<cmd>BufferLineCloseLeft<cr>', { desc = 'Delete Left Buffers' })
+    vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseRight<cr>', { desc = 'Delete Right Buffers' })
   end,
 }

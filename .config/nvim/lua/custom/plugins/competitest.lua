@@ -20,7 +20,8 @@ return {
       received_problems_prompt_path = false,
       evaluate_template_modifiers = true,
       testcases_use_single_file = true,
-      save_all_files = true,
+      -- save_all_files = true,
+      save_all_files = false,
       maximum_timeout = 2000,
       template_file = '~/.config/nvim/templates/template.$(FEXT)',
       runner_ui = {
@@ -35,5 +36,21 @@ return {
         total_width = 0.5,
       },
     }
+
+    local function update_competitest_winbars()
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+
+        local ok, title = pcall(vim.api.nvim_buf_get_var, buf, 'competitest_title')
+
+        local config = vim.api.nvim_win_get_config(win)
+
+        if ok and config.relative == '' then vim.api.nvim_set_option_value('winbar', title, { scope = 'local', win = win }) end
+      end
+    end
+
+    vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinNew', 'BufEnter' }, {
+      callback = update_competitest_winbars,
+    })
   end,
 }

@@ -5,81 +5,82 @@ snippet co
 snippet ce
   cerr << ${0};
 snippet !spf
-  const int N = 1e6 + 1;
-  array<int, N> spf;
+  const int N = ;
+  int spf[N];
 
   void SPF() {
-    for (int i = 2; i < N; i++) {
-      if (spf[i] == 0) {
-        spf[i] = i;
-        for (ll j = 1ll * i * i; j < N; j += i)
-          if (!spf[j])
-            spf[j] = i;
+    iota(spf, spf + N, 0);
+
+    for (ll i = 2; i < N; i++) {
+      if (spf[i] == i) {
+        for (ll j = i * i; j < N; j += i)
+          spf[j] = min(spf[j], i);
       }
     }
   }
 snippet !sieve
-  const int N = 1e6 + 1;
-  array<bool, N> isPrime;
+  const int N = ;
+  bool isPrime[N];
 
   void Sieve() {
-    isPrime.fill(true);
+    memset(isPrime, 1, sizeof isPrime);
     isPrime[0] = isPrime[1] = false;
 
-    for (int i = 2; i < N; i++) {
+    for (ll i = 2; i < N; i++) {
       if (isPrime[i]) {
-        for (ll j = 1ll * i * i; j < N; j += i)
+        for (ll j = i * i; j < N; j += i) {
           isPrime[j] = false;
+        }
       }
     }
   }
 snippet !mod_arithmetics
-  ll MOD = 1e9 + 7;
+  ll MOD = ;
 
-  ll add(ll a, ll b, ll mod = MOD) { return (a % mod + b % mod) % mod; }
+  ll add(ll a, ll b) { return (a % MOD + b % MOD) % MOD; }
 
-  ll sub(ll a, ll b, ll mod = MOD) { return (a % mod - b % mod + mod) % mod; }
+  ll sub(ll a, ll b) { return (a % MOD - b % MOD + MOD) % MOD; }
 
-  ll mult(ll a, ll b, ll mod = MOD) { return ((a % mod) * (b % mod)) % mod; }
+  ll mult(ll a, ll b) { return ((a % MOD) * (b % MOD)) % MOD; }
 
-  ll fp(ll base, ll power, ll mod = MOD) {
+  ll fp(ll base, ll power) {
     if (power == 0)
       return 1;
 
-    ll hp = fp(base, power / 2, mod);
-    ll fullPower = mult(hp, hp, mod);
+    ll hp = fp(base, power / 2);
+    ll fullPower = mult(hp, hp);
 
-    if (power % 2 != 0)
-      fullPower = mult(fullPower, base, mod);
+    if (power % 2)
+      fullPower = mult(fullPower, base);
 
     return fullPower;
   }
 
-  ll divi(ll a, ll b, ll mod = MOD) { return mult(a, fp(b, mod - 2)); }
+  ll divi(ll a, ll b) { return mult(a, fp(b, MOD - 2)); }
 snippet !combinatorics
-  const int N = 1e6 + 1;
-  array<int, N> fact, invFact;
+  const int N = ;
+  int fact[N], invFact[N];
 
-  ll nPr(ll n, ll r, ll mod = MOD) {
-    return r > n || n < 0 || r < 0 ? 0 : mult(fact[n], invFact[n - r], mod);
+  ll nPr(ll n, ll r) {
+    return r > n || n < 0 || r < 0 ? 0 : mult(fact[n], invFact[n - r]);
   }
 
-  ll nCr(ll n, ll r, ll mod = MOD) {
+  ll nCr(ll n, ll r) {
     return r > n || n < 0 || r < 0
                ? 0
-               : mult(fact[n], mult(invFact[r], invFact[n - r], mod), mod);
+               : mult(fact[n], mult(invFact[r], invFact[n - r]));
   }
 
-  ll sNb(ll n, ll k, ll mod = MOD) { return nCr(n + k - 1, n, mod); }
+  ll sNb(ll n, ll k) { return nCr(n + k - 1, n); }
 
-  void precalFactorial(ll mod = MOD) {
+  void precalFactorial() {
     fact[0] = 1;
     for (int i = 1; i < N; i++)
-      fact[i] = mult(fact[i - 1], i, mod);
+      fact[i] = mult(fact[i - 1], i);
 
-    invFact[N - 1] = divi(1, fact[N - 1], mod);
-    for (int i = N - 2; i > -1; i--)
-      invFact[i] = mult(invFact[i + 1], i + 1, mod);
+    invFact[N - 1] = divi(1, fact[N - 1]);
+    for (int i = N - 2; i >= 0; i--)
+      invFact[i] = mult(invFact[i + 1], i + 1);
   }
 snippet !cpptemp
   #include <bits/stdc++.h>
@@ -94,11 +95,10 @@ snippet !cpptemp
   #define sep 579
   #endif
 
-  // #define int ll
+  #define int ll
   #define endl '\n'
   #define all(v) (v).begin(), (v).end()
   #define rall(v) (v).rbegin(), (v).rend()
-  #define len(v) (int)(v).size()
   #define Ragaey ios::sync_with_stdio(false), cin.tie(nullptr)
 
   void solve() {
@@ -108,11 +108,12 @@ snippet !cpptemp
   signed main() {
     Ragaey;
 
-    int t = 1;
-    // cin >> t;
-    while (t--)
+    int tc = 1;
+    // cin >> tc;
+    while (tc--)
       solve();
   }
+
 snippet !ordered_set
   #include <ext/pb_ds/assoc_container.hpp>
   #include <ext/pb_ds/tree_policy.hpp>
@@ -123,34 +124,23 @@ snippet !ordered_set
   template <class T>
   using ordered_multiset = tree<T, null_type, std::less_equal<T>, rb_tree_tag,
                                 tree_order_statistics_node_update>;
-
-snippet !segment_lazy
+snippet !segment
   struct Node {
-    ll lazy = -1;
-    bool hasLazy = false;
-
-    Node mergeData(Node &r) {
-      Node ans;
-      return ans;
-    }
-
-    void applyLazy(ll l, ll r) {
-      hasLazy = false;
-      lazy = -1;
-    }
-
-    void mergeLazy(Node &par) {
-      hasLazy = true;
-    }
   };
 
-  struct LazySeg {
+  struct Seg {
     int size;
     vector<Node> data;
 
+    Node mergeData(Node l, Node r) {
+      Node ans;
+
+      return ans;
+    }
+
     void build(int l, int r, int node, const vector<Node> &arr) {
       if (l == r) {
-        if (l < len(arr))
+        if (l < arr.size())
           data[node] = arr[l];
 
         return;
@@ -158,39 +148,24 @@ snippet !segment_lazy
 
       build(l, (l + r) / 2, node * 2 + 1, arr);
       build((l + r) / 2 + 1, r, node * 2 + 2, arr);
-      data[node] = data[node * 2 + 1].mergeData(data[node * 2 + 2]);
+      data[node] = mergeData(data[node * 2 + 1], data[node * 2 + 2]);
     }
 
-    void update(int l, int r, int node, int lq, int rq, Node val) {
-      propagate(l, r, node);
-      if (l > rq || r < lq)
+    void update(int l, int r, int node, int i, Node val) {
+      if (i < l || i > r)
         return;
 
-      if (l >= lq && r <= rq) {
-        data[node].mergeLazy(val);
-        propagate(l, r, node);
+      if (l == r) {
+        data[node] = mergeData(data[node], val);
         return;
       }
 
-      update(l, (l + r) / 2, node * 2 + 1, lq, rq, val);
-      update((l + r) / 2 + 1, r, node * 2 + 2, lq, rq, val);
-      data[node] = data[node * 2 + 1].mergeData(data[node * 2 + 2]);
-    }
-
-    void propagate(int l, int r, int node) {
-      if (!data[node].hasLazy)
-        return;
-
-      if (l != r) {
-        data[node * 2 + 1].mergeLazy(data[node]);
-        data[node * 2 + 2].mergeLazy(data[node]);
-      }
-
-      data[node].applyLazy(l, r);
+      update(l, (l + r) / 2, node * 2 + 1, i, val);
+      update((l + r) / 2 + 1, r, node * 2 + 2, i, val);
+      data[node] = mergeData(data[node * 2 + 1], data[node * 2 + 2]);
     }
 
     Node query(int l, int r, int node, int lq, int rq) {
-      propagate(l, r, node);
       if (l > rq || r < lq)
         return Node();
 
@@ -200,11 +175,110 @@ snippet !segment_lazy
       Node left = query(l, (l + r) / 2, node * 2 + 1, lq, rq);
       Node right = query((l + r) / 2 + 1, r, node * 2 + 2, lq, rq);
 
-      return left.mergeData(right);
+      return mergeData(left, right);
+    }
+
+    Seg(const vector<Node> &arr) {
+      for (size = 1; size < arr.size(); size <<= 1)
+        ;
+      data.assign(size * 2, Node());
+
+      build(0, size - 1, 0, arr);
+    }
+
+    void update(int i, Node val) { update(0, size - 1, 0, i, val); }
+
+    Node query(int l, int r) {
+      return r >= l ? query(0, size - 1, 0, l, r) : Node();
+    }
+  };
+snippet !segment_lazy
+  struct Node {
+    ll sum{};
+    ll lazy{};
+    bool hasLazy = false;
+  };
+
+  struct LazySeg {
+    int size;
+    vector<Node> data;
+
+    Node mergeData(Node &l, Node &r) {
+      Node ans;
+      ans.sum = l.sum + r.sum;
+
+      return ans;
+    }
+
+    void applyLazy(Node &tar, ll l, ll r) {
+      tar.sum += tar.lazy * (r - l + 1);
+      tar.hasLazy = false;
+      tar.lazy = 0;
+    }
+
+    void mergeLazy(Node &tar, Node &par) {
+      tar.lazy += par.lazy;
+      tar.hasLazy = true;
+    }
+
+    void build(int l, int r, int node, const vector<Node> &arr) {
+      if (l == r) {
+        if (l < arr.size())
+          data[node] = arr[l];
+
+        return;
+      }
+
+      build(l, (l + r) / 2, node * 2 + 1, arr);
+      build((l + r) / 2 + 1, r, node * 2 + 2, arr);
+      data[node] = mergeData(data[node * 2 + 1], data[node * 2 + 2]);
+    }
+
+    void update(int l, int r, int node, int lq, int rq, Node val) {
+      propagate(l, r, node);
+      if (l > rq || r < lq)
+        return;
+
+      if (l >= lq && r <= rq) {
+        mergeLazy(data[node], val);
+        propagate(l, r, node);
+        return;
+      }
+
+      update(l, (l + r) / 2, node * 2 + 1, lq, rq, val);
+      update((l + r) / 2 + 1, r, node * 2 + 2, lq, rq, val);
+      data[node] = mergeData(data[node * 2 + 1], data[node * 2 + 2]);
+    }
+
+    void propagate(int l, int r, int node) {
+      if (!data[node].hasLazy)
+        return;
+
+      if (l != r) {
+        mergeLazy(data[node * 2 + 1], data[node]);
+        mergeLazy(data[node * 2 + 2], data[node]);
+      }
+
+      applyLazy(data[node], l, r);
+    }
+
+    Node query(int l, int r, int node, int lq, int rq) {
+      propagate(l, r, node);
+      if (l > rq || r < lq)
+        return Node();
+
+      if (l >= lq && r <= rq) {
+        return data[node];
+      }
+
+      Node left = query(l, (l + r) / 2, node * 2 + 1, lq, rq);
+      Node right = query((l + r) / 2 + 1, r, node * 2 + 2, lq, rq);
+
+      return mergeData(left, right);
     }
 
     LazySeg(const vector<Node> &arr) {
-      for (size = 1; size < len(arr); size <<= 1);
+      for (size = 1; size < arr.size(); size <<= 1) ;
       data.assign(size * 2, Node());
 
       build(0, size - 1, 0, arr);
@@ -215,149 +289,291 @@ snippet !segment_lazy
     Node query(int l, int r) { return query(0, size - 1, 0, l, r); }
   };
 snippet !sparse_table
-  struct Node {};
+  struct Node {
+      int x = 0;
+  };
 
-  struct SparseTable {
-    vector<vector<Node>> data;
-    Node defaultValue;
+  struct Sparse {
+      int lg;
+      vector<vector<Node>> T;
 
-    Node merge(Node a, Node b) { return a; }
-
-    SparseTable() {}
-
-    SparseTable(const vector<Node> &arr) {
-      int n = len(arr), lg = __lg(n);
-      data.assign(n, vector<Node>(lg + 1));
-
-      for (int i = 0; i < n; i++)
-        data[i][0] = arr[i];
-
-      for (int i = 1; i <= lg; i++) {
-        for (int j = 0; j + (1 << i) <= n; j++)
-          data[j][i] = merge(data[j][i - 1], data[j + (1 << (i - 1))][i - 1]);
+      Node merge(Node& a, Node& b) {
+          Node ret;
+          ret.x = max(a.x, b.x);
+          return ret;
       }
+
+      Sparse(vector<Node>& vec) {
+          int n = vec.size();
+          lg = __lg(n);
+          T.assign(n, vector<Node>(lg + 1));
+
+          for (int i = 0; i < n; i++) T[i][0] = vec[i];
+
+          for (int pw = 1; (1 << pw) <= n; pw++) {
+              for (int i = 0; i + (1 << pw) <= n; i++)
+                  T[i][pw] = merge(T[i][pw - 1], T[i + (1 << (pw - 1))][pw - 1]);
+          }
+      }
+
+      Node query(int l, int r) {
+          int size = r - l + 1;
+
+          int pw = __lg(size);
+          return merge(T[l][pw], T[r - (1 << pw) + 1][pw]);
+      }
+
+      Node query2(int l, int r) {
+          int size = r - l + 1;
+
+          Node ret;
+          for (int i = lg; i >= 0; i--) {
+              if ((size >> i) & 1) ret = merge(ret, T[l][i]), l += (1 << i);
+          }
+
+          return ret;
+      }
+  };
+snippet !trie
+  struct Trie {
+    struct Node {
+      int next[26], pref, end;
+
+      Node() {
+        memset(next, -1, sizeof(next));
+        pref = end = 0;
+      }
+    };
+
+    vector<Node> tree;
+
+    Trie() {
+      Node root;
+      tree.push_back(root);
     }
 
-    Node query(int l, int r) {
-      Node ans = defaultValue;
-      int diff = r - l + 1, last = l;
-
-      while (diff) {
-        int top = __lg(diff);
-        ans = merge(ans, data[last][top]);
-
-        last += (1 << top);
-        diff &= ~(1 << top);
+    void insert(const string &s) {
+      int cur = 0;
+      for (char ch : s) {
+        int nxt = ch - 'a';
+        if (tree[cur].next[nxt] == -1) {
+          tree[cur].next[nxt] = tree.size();
+          Node New;
+          tree.push_back(New);
+        }
+        cur = tree[cur].next[nxt];
+        tree[cur].pref++;
       }
+      tree[cur].end++;
+    }
 
+    bool search(const string &s) {
+      int cur = 0;
+      for (char ch : s) {
+        int nxt = ch - 'a';
+        if (tree[cur].next[nxt] == -1)
+          return false;
+        cur = tree[cur].next[nxt];
+      }
+      return tree[cur].end > 0;
+    }
+
+    int count(const string &s) {
+      int cur = 0;
+      for (char ch : s) {
+        int nxt = ch - 'a';
+        if (tree[cur].next[nxt] == -1)
+          return 0;
+        cur = tree[cur].next[nxt];
+      }
+      return tree[cur].pref;
+    }
+  };
+snippet !binary_trie
+  struct BinaryTrie {
+    struct Node {
+      int child[2];
+      int pref;
+      int end;
+
+      Node() {
+        child[0] = child[1] = -1;
+        pref = 0;
+        end = 0;
+      }
+    };
+
+    vector<Node> tree;
+    const int MAX_BIT = 30;
+
+    BinaryTrie() {
+      Node root;
+      tree.push_back(root);
+    }
+
+    void insert(int x) {
+      int cur = 0;
+      tree[cur].pref++;
+      for (int i = MAX_BIT; i >= 0; i--) {
+        int bit = (x >> i) & 1;
+        if (tree[cur].child[bit] == -1) {
+          tree[cur].child[bit] = tree.size();
+          Node New;
+          tree.push_back(New);
+        }
+        cur = tree[cur].child[bit];
+        tree[cur].pref++;
+      }
+      tree[cur].end++;
+    }
+
+    void remove(int x) {
+      int cur = 0;
+      tree[cur].pref--;
+      for (int i = MAX_BIT; i >= 0; i--) {
+        int bit = (x >> i) & 1;
+        cur = tree[cur].child[bit];
+        tree[cur].pref--;
+      }
+      tree[cur].end--;
+    }
+
+    int max_xor(int x) {
+      if (tree[0].pref == 0) return 0;
+      int cur = 0;
+      int ans = 0;
+      for (int i = MAX_BIT; i >= 0; i--) {
+        int bit = (x >> i) & 1;
+        int desired_bit = 1 - bit;
+        if (tree[cur].child[desired_bit] != -1 && tree[tree[cur].child[desired_bit]].pref > 0) {
+          ans |= (1 << i);
+          cur = tree[cur].child[desired_bit];
+        } else {
+          cur = tree[cur].child[bit];
+        }
+      }
       return ans;
     }
   };
-snippet !trie
-  struct Node {
-    array<Node *, 26> next{};
-    int data = INT_MAX;
-  };
+snippet !hash
+  const int NH = 2, N = ;
+  int bases[] = {31, 37}, mods[] = {(int)1e9 + 7, 874758029}, pw[N][NH];
 
-  struct Trie {
-    Node *root = new Node();
-
-    void insert(string &s) {
-      Node *cur = root;
-      int n = len(s);
-
-      for (int i = 0; i < n; i++) {
-        if (!cur->next[s[i] - 'a'])
-          cur->next[s[i] - 'a'] = new Node();
-
-        cur = cur->next[s[i] - 'a'];
-        cur->data = min(cur->data, n);
-      }
-    }
-
-    int get(string &s) {
-      Node *cur = root;
-
-      for (int i = 0; i < len(s); i++) {
-        if (!cur->next[s[i] - 'a'])
-          return -1;
-
-        cur = cur->next[s[i] - 'a'];
-      }
-
-      return cur->data;
-    }
-  };
-snippet binary_trie
-  struct Node {
-    array<Node *, 2> next{};
-  };
-
-  struct Trie {
-    Node *root = new Node();
-
-    void insert(int s) {
-      Node *cur = root;
-
-      for (int i = 29; i >= 0; i--) {
-        bool j = (s >> i) & 1;
-        if (!cur->next[j])
-          cur->next[j] = new Node();
-
-        cur = cur->next[j];
-      }
-    }
-
-    int get(int s) {
-      Node *cur = root;
-
-      int best{};
-      for (int i = 29; i >= 0; i--) {
-        bool j = (s >> i) & 1;
-        if (cur->next[!j]) {
-          cur = cur->next[!j];
-          best = (best << 1) + !j;
-        } else {
-          cur = cur->next[j];
-          best = (best << 1) + j;
-        }
-      }
-
-      return best;
-    }
-  };
-snippet !hashing
   struct Hash {
-    static const int N = 2;
-    vector<array<ll, N>> h, p;
-    array<int, N> bases = {31, 37}, mods = {(int)1e9 + 7, (int)1e9 + 9};
+    vector<array<ll, NH>> h;
 
     Hash(string &s) {
-      int n = len(s);
-
+      int n = s.size();
       h.resize(n + 1);
-      p.resize(n + 1);
-      p[0].fill(1);
 
       for (int i = 1; i <= n; i++) {
-        for (int j = 0; j < N; j++) {
-          p[i][j] = (p[i - 1][j] * bases[j]) % mods[j];
+        for (int j = 0; j < NH; j++) {
           h[i][j] =
               ((h[i - 1][j] * bases[j]) % mods[j] + s[i - 1] - 'a' + 1) % mods[j];
         }
       }
     }
 
-    array<ll, N> get(int l, int r) {
+    array<ll, NH> get(int l, int r) {
       l++, r++;
-      array<ll, N> ans{};
-      if (l <= r)
-        for (int j = 0; j < N; j++)
-          ans[j] =
-              (h[r][j] - (h[l - 1][j] * p[r - l + 1][j]) % mods[j] + mods[j]) %
-              mods[j];
+      array<ll, NH> ans{};
+      for (int j = 0; j < NH && r >= l; j++)
+        ans[j] =
+            (h[r][j] - (h[l - 1][j] * pw[r - l + 1][j]) % mods[j] + mods[j]) %
+            mods[j];
 
       return ans;
+    }
+  };
+
+  void precalcHash() {
+    for (int i = 0; i < NH; i++)
+      pw[0][i] = 1;
+
+    for (int i = 1; i < N; i++) {
+      for (int j = 0; j < NH; j++)
+        pw[i][j] = (pw[i - 1][j] * bases[j]) % mods[j];
+    }
+  }
+snippet !lca
+  const int LG = 30;
+
+  struct LCA {
+    vector<vector<int>> up, mx;
+    vector<int> depth;
+
+    LCA(vector<vector<int>> &adj) {
+      int n = adj.size();
+
+      depth.resize(n);
+      up.assign(n, vector<int>(LG));
+      mx.assign(n, vector<int>(LG));
+      build(1, 0, adj);
+    }
+
+    void build(int u, int p, vector<vector<int>> &adj) {
+      depth[u] = depth[p] + 1;
+      up[u][0] = p;
+
+      for (int i = 1; i < LG; i++) {
+        int lift = up[u][i - 1];
+        up[u][i] = up[lift][i - 1];
+      }
+
+      for (auto &v : adj[u]) {
+        if (v != p)
+          build(v, u, adj);
+      }
+    }
+
+    int kthAnc(int u, int k) {
+      for (int i = LG - 1; ~i; i--) {
+        if ((k >> i) & 1)
+          u = up[u][i];
+      }
+      return u;
+    }
+
+    int getMx(int u, int v) {
+      int ans{}, p = lca(u, v);
+
+      int k1 = dist(u, p), k2 = dist(v, p);
+      for (int i = LG - 1; ~i; i--) {
+        if ((k1 >> i) & 1) {
+          ans = max(ans, mx[u][i]);
+          u = up[u][i];
+        }
+
+        if ((k2 >> i) & 1) {
+          ans = max(ans, mx[v][i]);
+          v = up[v][i];
+        }
+      }
+
+      return ans;
+    }
+
+    int lca(int u, int v) {
+      if (depth[u] < depth[v])
+        swap(u, v);
+      u = kthAnc(u, depth[u] - depth[v]);
+
+      if (u == v)
+        return u;
+
+      for (int i = LG - 1; ~i; i--) {
+        if (up[u][i] != up[v][i]) {
+          u = up[u][i];
+          v = up[v][i];
+        }
+      }
+
+      return up[u][0];
+    }
+
+    int dist(int u, int v) {
+      int p = lca(u, v);
+      return depth[u] + depth[v] - 2 * depth[p];
     }
   };
 snippet !dsu
@@ -365,30 +581,43 @@ snippet !dsu
     vector<int> par, sizes;
 
     DSU(int n) {
-      sizes.assign(n + 1, 1);
-      par.resize(n + 1);
-
-      for (int i = 1; i <= n; i++)
-        par[i] = i;
+      n++;
+      par.resize(n);
+      sizes.assign(n, 1);
+      iota(all(par), 0);
     }
 
-    int find(int u) {
-      if (par[u] == u)
-        return u;
-
-      return par[u] = find(par[u]);
+    int find(int v) {
+      if (v == par[v])
+        return v;
+      return par[v] = find(par[v]);
     }
 
     bool merge(int u, int v) {
       int r1 = find(u), r2 = find(v);
       if (r1 == r2)
-        return false;
+        return 0;
 
-      if (sizes[r1] > sizes[r2])
+      if (sizes[r1] < sizes[r2])
         swap(r1, r2);
 
-      par[r1] = r2;
-      sizes[r2] += sizes[r1];
-      return true;
+      par[r2] = r1;
+      sizes[r1] += sizes[r2];
+      return 1;
     }
   };
+snippet !egcd
+  ll egcd(ll a, ll b, ll &x, ll &y) {
+    if (b > a)    return egcd(b, a, y, x);
+    if (b == 0) {
+      x = 1;
+      y = 0;
+      return a;
+    }
+
+    ll newX, newY;
+    ll ans = egcd(b, a % b, newX, newY);
+    x = newY;
+    y = newX - x * (a / b);
+    return ans;
+  }
